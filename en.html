@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Björn Müller — Portfolio</title>
+  <meta name="description" content="Portfolio & contact page of Björn Müller: Product Owner & Data Enthusiast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">Björn Müller</a>
+    <nav id="nav" class="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn-lang" href="index.html" lang="de" aria-label="Zur deutschen Version wechseln">DE</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="section hero">
+      <div class="hero__content container">
+        <div class="hero__text">
+          <h1>Björn Müller<br><span class="accent">Product Owner <br>&amp; Data Enthusiast</span></h1>
+          <p>I develop data-driven products at the intersection of <strong>Product Ownership</strong> and <strong>Data</strong> – with a focus on impact, clarity, and collaboration.</p>
+          <div class="cta">
+            <a class="btn" href="#projects">View projects</a>
+            <a class="btn btn--ghost" href="#contact">Contact</a>
+            <a class="btn btn--ghost" href="assets/CV_Bjoern_Mueller_EN-GB.pdf" download>Download CV</a>
+          </div>
+        </div>
+        <div class="hero__card">
+          <img class="avatar-img" src="assets/avatar.jpg" width="240" height="320" alt="Portrait of Björn Müller" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div>
+          <h2>About me</h2>
+<ul class="list">
+  <li>Extensive experience of ~5 years as a Product Owner in agile, interdisciplinary teams</li>
+  <li>Proven success in the automotive industry with projects for clients such as BMW and VW</li>
+  <li>Team leadership, productivity improvement, implementation of agile methods in SAFe &amp; Scrum</li>
+  <li>In-depth knowledge of Python, SQL and agile tools such as JIRA and Confluence</li>
+  <li>International experience through work in Germany and China</li>
+  <li>Additional qualities:
+    <ul class="list">
+      <li>Strong analytical thinking</li>
+      <li>Hands-on mentality</li>
+      <li>Enjoyment of interdisciplinary collaboration</li>
+      <li>Fast adaptability to new industries and cultures</li>
+    </ul>
+  </li>
+</ul>
+</div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section section--alt">
+      <div class="container"><h2>Skills</h2>
+<div class="skills-grid">
+  <div class="skills-col">
+    <h3 class="sub">Programming languages</h3>
+    <div class="tags"><span>Python</span><span>SQL</span><span>NoSQL</span><span>Java</span><span>Matlab</span><span>C</span><span>C++</span><span>DXL</span></div>
+    <h3 class="sub">Agile & Requirement Skills</h3>
+    <div class="tags"><span>Scrum</span><span>SAFe</span><span>KANBAN</span><span>JIRA</span><span>Confluence</span><span>Notion</span><span>Miro</span><span>Microsoft Office Suit</span><span>Doors</span><span>Polarion</span></div>
+  </div>
+  <div class="skills-col">
+    <h3 class="sub">Languages</h3>
+    <div class="tags"><span>German</span><span>English</span><span>Spanish</span></div>
+    <h3 class="sub">Training</h3>
+    <ul class="list">
+      <li><a href="https://www.scrum.org/certificates/1154945" target="_blank" rel="noopener">Professional Scrum Master 1</a></li>
+      <li>IREB Requirements Engineering</li>
+      <li>Systems modelling based on SysML fundamentals</li>
+    </ul>
+  </div>
+</div>
+</div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Selected projects</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>ML Prototype: Linear Regression – Insurance data</h3>
+            <p>Analysis of an insurance dataset incl. data preparation and execution of linear regression.<br><br><em>Work in progress</em></p>
+            <a class="btn btn--small" href="http://github.com/BjoernMueller13/HealthInsuranceDataUS" target="_blank" rel="noopener">Repo</a>
+          </article>
+          <article class="card">
+            <h3>SQL analysis: Football data</h3>
+            <p>Exploratory SQL queries and KPIs connected to Python DataFrames (NumPy &amp; Pandas) around league games &amp; teams.<br><br><em>Work in progress</em></p>
+            <a class="btn btn--small" href="https://github.com/BjoernMueller13/SQLFootballDataKPIs" target="_blank" rel="noopener">Repo</a>
+          </article>
+          <article class="card">
+            <h3>CV/ADAS demo and maturity assessment</h3>
+            <p>Proof-of-concept for object detection &amp; a simple maturity view incl. evaluation.<br><br><em>Work in progress</em></p>
+            <a class="btn btn--small" href="https://github.com/BjoernMueller13/CVAutnomousDriving" target="_blank" rel="noopener">Repo</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact (bottom) -->
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <div>
+          <h2>Contact</h2>
+          <p class="contact-inline">
+            <a href="mailto:bjoern.mueller92@gmail.com"><strong>Email</strong></a> |
+            <a href="https://www.linkedin.com/in/bjoern-mueller/" target="_blank" rel="noopener"><strong>LinkedIn</strong></a> |
+            <a href="https://github.com/BjoernMueller13/" target="_blank" rel="noopener"><strong>GitHub</strong></a> |
+            <a href="https://www.xing.com/profile/Bjoern_Mueller192/" target="_blank" rel="noopener"><strong>Xing</strong></a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Björn Müller · <a href="#home">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
