@@ -24,3 +24,6 @@
 .site-footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted)}
 @media (max-width:900px){.grid-2,.hero__content{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.cards{grid-template-columns:1fr}.nav{display:none}.menu-btn{display:block}.nav.open{display:flex;position:absolute;top:60px;right:1rem;flex-direction:column;background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:.6rem}}
+
+/* Re-add rounded corners to profile image */
+.avatar-img{ border-radius:14px; }
