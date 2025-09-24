@@ -1,4 +1,4 @@
-# BjoernMueller13.github.io — Light Navy (v15)
+# BjoernMueller13.github.io
 
 Zweisprachige, statische Portfolio-Website (DE/EN) für **GitHub Pages** – leichtgewichtig (HTML/CSS/JS), modern (helles Theme, Navy-Akzent), mobilfreundlich.
 
