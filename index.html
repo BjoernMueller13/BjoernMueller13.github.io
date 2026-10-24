@@ -1,13 +1,190 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Björn Müller — Portfolio</title><link rel="stylesheet" href="styles.css"/></head>
-<body><header class="site-header"><a class="brand" href="#home">Björn Müller</a><nav id="nav" class="nav"><a href="#home">Home</a><a href="#about">Über mich</a><a href="#skills">Skills</a><a href="#projects">Projekte</a><a href="#contact">Kontakt</a></nav><a class="btn-lang" href="en.html" lang="en">EN</a><button class="menu-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button></header>
-<main>
-<section id="home" class="section hero"><div class="hero__content container"><div class="hero__text"><h1>Björn Müller<br><span class="accent">Product Owner <br>&amp; Data Enthusiast</span></h1><p>Ich entwickle datengetriebene Produkte an der Schnittstelle von <strong>Product Ownership</strong> und <strong>Data</strong> – mit Fokus auf Impact, Klarheit und Zusammenarbeit.</p><div class="cta"><a class="btn" href="#projects">Projekte ansehen</a><a class="btn btn--ghost" href="#contact">Kontakt</a><a class="btn btn--ghost" href="assets/CV_Bjoern_Mueller_DE.pdf" download>CV herunterladen</a></div></div><div class="hero__card"><img class="avatar-img" src="assets/avatar.jpg" width="240" height="320" alt="Porträt von Björn Müller"/></div></div></section>
-<section id="about" class="section"><div class="container"><h2>Über mich</h2><ul class="list"><li>Umfassende Erfahrung von ca. 5 Jahren als Product Owner in agilen, interdisziplinären Teams</li><li>Nachweislicher Erfolg in der Automobilbranche mit Projekten für Kunden wie BMW und VW</li><li>Leitung von Teams, Steigerung der Produktivität, Umsetzung agiler Methoden in SAFe &amp; Scrum</li><li>Fundierte Kenntnisse in Python, SQL sowie agilen Tools wie JIRA und Confluence</li><li>Internationale Erfahrung durch Tätigkeiten in Deutschland und China</li><li>Weitere Qualitäten:<ul class="list"><li>Ausgeprägtes analytisches Denken</li><li>Hands-on-Mentalität</li><li>Freude an interdisziplinärer Zusammenarbeit</li><li>schnelle Anpassungsfähigkeit an neue Branchen und Kulturen</li></ul></li></ul></div></section>
-<section id="skills" class="section section--alt"><div class="container"><h2>Skills</h2><div class="skills-grid"><div class="skills-col"><h3 class="sub">Programmiersprachen</h3><div class="tags"><span>Python</span><span>SQL</span><span>NoSQL</span><span>Java</span><span>Matlab</span><span>C</span><span>C++</span><span>DXL</span></div><h3 class="sub">Agile & Requirement Skills</h3><div class="tags"><span>Scrum</span><span>SAFe</span><span>KANBAN</span><span>JIRA</span><span>Confluence</span><span>Notion</span><span>Miro</span><span>Microsoft Office Suit</span><span>Doors</span><span>Polarion</span></div></div><div class="skills-col"><h3 class="sub">Sprachen</h3><div class="tags"><span>Deutsch</span><span>Englisch</span><span>Spanisch</span></div><h3 class="sub">Fortbildungen</h3><ul class="list"><li><a href="https://www.scrum.org/certificates/1154945" target="_blank" rel="noopener">Professional Scrum Master 1</a></li><li>IREB Requirement Engineering</li><li>Systemmodellierung auf Basis von SysML-Grundlagen</li></ul></div></div></div></section>
-<section id="projects" class="section"><div class="container"><h2>Ausgewählte Projekte</h2><div class="cards">
-<article class="card"><h3>ML-Prototyp: Lineare Regression - Versicherungsdaten</h3><p>Auswertung eines Versicherungssatzes samt Aufbereitung der Daten und Ausführung von Linearer Regression</p><a class="btn btn--small" href="http://github.com/BjoernMueller13/HealthInsuranceDataUS" target="_blank" rel="noopener">Repo</a></article>
-<article class="card"><h3>SQL Analyse: Fußballdaten</h3><p>Explorative SQL-Abfragen und KPIs in Verbindung mit Python Dataframes (auf Basis von Numpy und Pandas) rund um Ligaspiele &amp; Teams. <br><br><em>Derzeit in Entwicklung</em></p><a class="btn btn--small" href="https://github.com/BjoernMueller13/SQLFootballDataKPIs" target="_blank" rel="noopener">Repo</a></article>
-<article class="card"><h3>CV/ADAS Demo and Maturity Assesment</h3><p>Proof-of-Concept für Objekterkennung &amp; einfache Maturity-Betrachtung inkl. Auswertung.<br><br><em>Derzeit in Entwicklung</em></p><a class="btn btn--small" href="https://github.com/BjoernMueller13/CVAutnomousDriving" target="_blank" rel="noopener">Repo</a></article>
-</div></div></section>
-<section id="contact" class="section section--alt"><div class="container grid-2"><div><h2>Kontakt</h2><p class="contact-inline"><a href="mailto:bjoern.mueller92@gmail.com"><strong>E-Mail</strong></a> | <a href="https://www.linkedin.com/in/bjoern-mueller/" target="_blank" rel="noopener"><strong>LinkedIn</strong></a> | <a href="https://github.com/BjoernMueller13/" target="_blank" rel="noopener"><strong>GitHub</strong></a> | <a href="https://www.xing.com/profile/Bjoern_Mueller192/" target="_blank" rel="noopener"><strong>Xing</strong></a></p></div></div></section>
-</main><footer class="site-footer"><div class="container"><p>© <span id="year"></span> Björn Müller · <a href="#home">Nach oben</a></p></div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Björn Müller</title>
+<meta name="description" content="Björn Müller – Product Owner & Senior Consultant for Agentic AI, Workflow Automation and Data-Driven Products. Based in Essen, Germany.">
+<meta name="theme-color" content="#0c0d1b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/v2/hero-poster.jpg">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+
+<a class="topstrip" href="#missions">
+  <span class="topstrip__palms" aria-hidden="true"></span>
+  <span class="topstrip__text">Mission 07&nbsp;&nbsp;now playing</span>
+</a>
+
+<header class="nav">
+  <a class="nav__mark" href="#top" aria-label="Björn Müller – back to top"><img src="img/v2/mark.png" alt="" width="337" height="153"></a>
+  <div class="nav__right">
+    <a class="pill pill--pink pill--sm" href="#contact">Hire Me</a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <ul>
+    <li><a href="#story"><small>01</small>Story</a></li>
+    <li><a href="#missions"><small>02</small>Missions</a></li>
+    <li><a href="#arsenal"><small>03</small>Arsenal</a></li>
+    <li><a href="#sidequests"><small>04</small>Side Quests</a></li>
+    <li><a href="#travels"><small>05</small>Travels</a></li>
+    <li><a href="#contact"><small>06</small>Contact</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <!-- HERO: poster shatters on scroll and reveals the logo -->
+  <section class="hero" aria-label="Intro">
+    <div class="hero__stage">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="hero__reveal" id="reveal">
+        <div class="lockup" aria-hidden="true">
+          <img class="lockup__numeral" src="img/v2/numeral.png" alt="" width="1450" height="696">
+          <img class="lockup__wordmark" src="img/v2/wordmark.png" alt="" width="1033" height="626">
+        </div>
+        <h1 class="sr-only">Björn Müller – Product Owner &amp; Senior Consultant</h1>
+        <div class="hero__tag">
+          <p>Product Owner &amp; Senior Consultant</p>
+          <p class="hero__tag-sub">Agentic AI · Workflow Automation · Data-Driven Products</p>
+          <a class="pill pill--lime" href="#missions">Start Career Mode <i>↓</i></a>
+        </div>
+      </div>
+
+      <div class="poster" id="poster">
+        <picture>
+          <source media="(max-width: 700px)" srcset="img/v2/hero-poster-tall.jpg">
+          <img class="poster__img" id="posterImg" src="img/v2/hero-poster.jpg" alt="Illustrated portrait of Björn Müller in a suit, arms crossed, in front of a sunset skyline" width="985" height="616">
+        </picture>
+        <div class="poster__shards" id="shards" aria-hidden="true"></div>
+        <svg class="poster__cracks" id="cracks" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+      </div>
+
+      <div class="hero__info">
+        <div class="hero__info-l"><span>Now playing</span><b>Senior Consultant<br>@ Exxeta</b></div>
+        <a class="pill pill--pink pill--glow" href="#contact">Hire Me</a>
+        <div class="hero__info-r"><span>Based in</span><b>Essen, Germany<br>Open to relocation</b></div>
+      </div>
+      <div class="hero__chev" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED: trailer-style trio -->
+  <section class="wrap featured" aria-label="Featured missions">
+    <div class="tri" id="featured"></div>
+  </section>
+
+  <!-- CAREER EDITION: Ultimate-Edition-style banner -->
+  <section class="wrap">
+    <article class="edition reveal">
+      <svg class="edition__palms" viewBox="0 0 1068 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="editionPalms"></svg>
+      <p class="edition__kicker">Career Edition</p>
+      <div class="edition__box">
+        <img src="img/portrait.jpg" alt="Illustrated close-up portrait of Björn Müller" width="712" height="1024" loading="lazy">
+        <img class="edition__logo" src="img/v2/wordmark.png" alt="" width="1033" height="626" loading="lazy">
+      </div>
+      <div class="edition__txt">
+        <h2 class="title">Career<br>Edition</h2>
+        <p>An exclusive collection of missions threaded across every chapter of Björn’s career, from the workshop floor to agentic AI.</p>
+        <a class="pill pill--peach" href="mailto:bjoern.mueller92@gmail.com?subject=CV%20request">Request full CV <i>→</i></a>
+      </div>
+    </article>
+  </section>
+
+  <!-- STORY -->
+  <section class="wrap story reveal" id="story">
+    <h2 class="story__h">Essen, Germany.</h2>
+    <p class="story__p">Björn has always worked the horizontal bar of the T: mechanics, electronics, software, people. From a workshop apprenticeship at Kiekert to object detection for BMW, from a backlog at CARIAD to agentic AI at Exxeta, he goes where the work is actually done. When an easy job gets complicated, he digs in, brings the team with him and makes it out with a process that runs 12 weeks faster.</p>
+    <ul class="facts">
+      <li><span>Class</span>T-shaped generalist</li>
+      <li><span>Home base</span>Essen · open to relocation</li>
+      <li><span>Languages</span>German · English C1 · Spanish A2</li>
+      <li><span>Motto</span>“Go where the work is done.”</li>
+    </ul>
+  </section>
+
+  <!-- MISSIONS -->
+  <section class="wrap missions" id="missions">
+    <div class="sechead reveal"><h2 class="grad-h">Missions</h2><span class="textlink">Career mode · 2011 – now</span></div>
+    <div class="missions__list" id="missionList"></div>
+  </section>
+
+  <!-- ARSENAL -->
+  <section class="band" id="arsenal">
+    <div class="wrap">
+      <div class="sechead reveal"><h2 class="grad-h">Arsenal</h2><a class="textlink" href="mailto:bjoern.mueller92@gmail.com?subject=CV%20request">Request full CV <i>→</i></a></div>
+      <div class="arsenal" id="arsenalGrid"></div>
+      <div class="stats reveal">
+        <div class="stats__head"><h3>Player Stats</h3><span>Self-assessed · updated 10/2026</span></div>
+        <div class="stats__grid" id="stats"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIDE QUESTS -->
+  <section class="wrap block" id="sidequests">
+    <div class="sechead reveal"><h2 class="grad-h">Side Quests</h2><span class="textlink">Hobbies &amp; crews</span></div>
+    <div class="news" id="quests"></div>
+  </section>
+
+  <!-- TRAVELS -->
+  <section class="wrap block" id="travels">
+    <article class="banner banner--travel reveal" id="travelBanner"></article>
+    <div class="continents reveal" id="continents"></div>
+  </section>
+
+  <!-- TRAINING -->
+  <section class="wrap block" id="training">
+    <div class="sechead reveal"><h2 class="grad-h">Training Records</h2><span class="textlink">Education &amp; certifications</span></div>
+    <div class="news news--compact" id="trainingList"></div>
+  </section>
+
+</main>
+
+<footer class="foot" id="contact">
+  <div class="foot__lockup" aria-hidden="true">
+    <img class="lockup__numeral" src="img/v2/numeral.png" alt="" width="1450" height="696" loading="lazy">
+    <img class="lockup__wordmark" src="img/v2/wordmark.png" alt="" width="1033" height="626" loading="lazy">
+  </div>
+  <a class="foot__cta" href="mailto:bjoern.mueller92@gmail.com">
+    <b><img src="img/v2/mark.png" alt="" width="337" height="153"> Get in touch</b>
+    <span>Product ownership, workflow automation or agentic AI on your roadmap? Send a message and get a reply within two days.</span>
+  </a>
+  <ul class="foot__social">
+    <li><a href="https://www.linkedin.com/in/bjoern-mueller" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a></li>
+    <li><a href="https://www.xing.com/profile/Bjoern_Mueller192" target="_blank" rel="noopener" aria-label="Xing"><svg viewBox="0 0 24 24"><path d="M5.3 6.6h3.2l1.9 3.4-2.6 4.6H4.6l2.6-4.6zM15.9 2.5h3.3l-5.5 9.8 3.6 6.9H14l-3.6-6.9z"/></svg></a></li>
+    <li><a href="mailto:bjoern.mueller92@gmail.com" aria-label="E-Mail"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zm2 2v.4l7 4.6 7-4.6V7zm14 2.8-7 4.6-7-4.6V17h14z"/></svg></a></li>
+  </ul>
+  <ul class="foot__links">
+    <li><a href="#">Imprint</a></li>
+    <li><a href="#">Privacy</a></li>
+  </ul>
+  <div class="rating">
+    <div class="rating__box"><b>T</b><small>TEAM<br>PLAYER</small></div>
+    <p>Agile Ceremonies, Strong Coffee, Frequent Travel, Mild Spanish, Repeated Use of Post-its.<span>In-Office and Remote Missions.</span></p>
+  </div>
+</footer>
+
+<dialog class="brief" id="brief" aria-labelledby="briefTitle">
+  <button class="brief__x" aria-label="Close">×</button>
+  <figure class="brief__art" id="briefArt"></figure>
+  <div class="brief__body">
+    <p class="eyebrow" id="briefEye"></p>
+    <h3 id="briefTitle"></h3>
+    <p class="brief__sub" id="briefSub"></p>
+    <ul class="brief__list" id="briefList"></ul>
+    <div class="chips" id="briefChips"></div>
+    <div class="intel" id="briefIntel"></div>
+  </div>
+</dialog>
+
+<script src="v2.js"></script>
+</body>
+</html>
