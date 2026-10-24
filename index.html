@@ -16,25 +16,25 @@
 
 <a class="topstrip" href="#missions">
   <span class="topstrip__palms" aria-hidden="true"></span>
-  <span class="topstrip__text">Mission 07&nbsp;&nbsp;now playing</span>
+  <span class="topstrip__text" data-i18n="topstrip"></span>
 </a>
 
 <header class="nav">
-  <a class="nav__mark" href="#top" aria-label="Björn Müller – back to top"><img src="img/v2/mark.png" alt="" width="337" height="153"></a>
+  <a class="nav__mark" href="#top" data-i18n-aria="nav.backToTop"><img src="img/v2/mark.png" alt="" width="337" height="153"></a>
   <div class="nav__right">
-    <a class="pill pill--pink pill--sm" href="#contact">Hire Me</a>
-    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    <a class="pill pill--pink pill--sm" href="#contact" data-i18n="nav.hire"></a>
+    <button class="nav__burger" data-i18n-aria="nav.menuOpen" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </div>
 </header>
 
 <nav class="menu" id="menu" aria-label="Main">
   <ul>
-    <li><a href="#story"><small>01</small>Story</a></li>
-    <li><a href="#missions"><small>02</small>Missions</a></li>
-    <li><a href="#arsenal"><small>03</small>Arsenal</a></li>
-    <li><a href="#sidequests"><small>04</small>Side Quests</a></li>
-    <li><a href="#travels"><small>05</small>Travels</a></li>
-    <li><a href="#contact"><small>06</small>Contact</a></li>
+    <li><a href="#story"><small>01</small><span data-i18n="menu.story"></span></a></li>
+    <li><a href="#missions"><small>02</small><span data-i18n="menu.missions"></span></a></li>
+    <li><a href="#arsenal"><small>03</small><span data-i18n="menu.arsenal"></span></a></li>
+    <li><a href="#sidequests"><small>04</small><span data-i18n="menu.quests"></span></a></li>
+    <li><a href="#travels"><small>05</small><span data-i18n="menu.travels"></span></a></li>
+    <li><a href="#contact"><small>06</small><span data-i18n="menu.contact"></span></a></li>
   </ul>
 </nav>
 
@@ -52,25 +52,25 @@
         </div>
         <h1 class="sr-only">Björn Müller – Product Owner &amp; Senior Consultant</h1>
         <div class="hero__tag">
-          <p>Product Owner &amp; Senior Consultant</p>
-          <p class="hero__tag-sub">Agentic AI · Workflow Automation · Data-Driven Products</p>
-          <a class="pill pill--lime" href="#missions">Start Career Mode <i>↓</i></a>
+          <p data-i18n="hero.tag"></p>
+          <p class="hero__tag-sub" data-i18n="hero.tagSub"></p>
+          <a class="pill pill--lime" href="#missions"><span data-i18n="hero.cta"></span> <i>↓</i></a>
         </div>
       </div>
 
       <div class="poster" id="poster">
         <picture>
           <source media="(max-width: 700px)" srcset="img/v2/hero-poster-tall.jpg">
-          <img class="poster__img" id="posterImg" src="img/v2/hero-poster.jpg" alt="Illustrated portrait of Björn Müller in a suit, arms crossed, in front of a sunset skyline" width="985" height="616">
+          <img class="poster__img" id="posterImg" src="img/v2/hero-poster.jpg" data-i18n-alt="hero.poster.alt" alt="Illustrated portrait of Björn Müller in a suit, arms crossed, in front of a sunset skyline" width="985" height="616">
         </picture>
         <div class="poster__shards" id="shards" aria-hidden="true"></div>
         <svg class="poster__cracks" id="cracks" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
       </div>
 
       <div class="hero__info">
-        <div class="hero__info-l"><span>Now playing</span><b>Senior Consultant<br>@ Exxeta</b></div>
-        <a class="pill pill--pink pill--glow" href="#contact">Hire Me</a>
-        <div class="hero__info-r"><span>Based in</span><b>Essen, Germany<br>Open to relocation</b></div>
+        <div class="hero__info-l"><span data-i18n="hero.info.nowPlaying"></span><b data-i18n="hero.info.role"></b></div>
+        <a class="pill pill--pink pill--glow" href="#contact" data-i18n="nav.hire"></a>
+        <div class="hero__info-r"><span data-i18n="hero.info.basedIn"></span><b data-i18n="hero.info.location"></b></div>
       </div>
       <div class="hero__chev" aria-hidden="true"></div>
     </div>
@@ -85,44 +85,44 @@
   <section class="wrap">
     <article class="edition reveal">
       <svg class="edition__palms" viewBox="0 0 1068 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="editionPalms"></svg>
-      <p class="edition__kicker">Career Edition</p>
+      <p class="edition__kicker" data-i18n="edition.kicker"></p>
       <div class="edition__box">
         <img src="img/portrait.jpg" alt="Illustrated close-up portrait of Björn Müller" width="712" height="1024" loading="lazy">
         <img class="edition__logo" src="img/v2/wordmark.png" alt="" width="1033" height="626" loading="lazy">
       </div>
       <div class="edition__txt">
-        <h2 class="title">Career<br>Edition</h2>
-        <p>An exclusive collection of missions threaded across every chapter of Björn’s career, from the workshop floor to agentic AI.</p>
-        <a class="pill pill--peach" href="mailto:bjoern.mueller92@gmail.com?subject=CV%20request">Request full CV <i>→</i></a>
+        <h2 class="title" data-i18n="edition.title"></h2>
+        <p data-i18n="edition.desc"></p>
+        <a class="pill pill--peach" href="mailto:bjoern.mueller92@gmail.com?subject=CV%20request"><span data-i18n="edition.cta"></span> <i>→</i></a>
       </div>
     </article>
   </section>
 
   <!-- STORY -->
   <section class="wrap story reveal" id="story">
-    <h2 class="story__h">Essen, Germany.</h2>
-    <p class="story__p">Björn has always worked the horizontal bar of the T: mechanics, electronics, software, people. From a workshop apprenticeship at Kiekert to object detection for BMW, from a backlog at CARIAD to agentic AI at Exxeta, he goes where the work is actually done. When an easy job gets complicated, he digs in, brings the team with him and makes it out with a process that runs 12 weeks faster.</p>
+    <h2 class="story__h" data-i18n="story.h"></h2>
+    <p class="story__p" data-i18n="story.p"></p>
     <ul class="facts">
-      <li><span>Class</span>T-shaped generalist</li>
-      <li><span>Home base</span>Essen · open to relocation</li>
-      <li><span>Languages</span>German · English C1 · Spanish A2</li>
-      <li><span>Motto</span>“Go where the work is done.”</li>
+      <li><span data-i18n="story.fact.class.k"></span><span data-i18n="story.fact.class.v"></span></li>
+      <li><span data-i18n="story.fact.base.k"></span><span data-i18n="story.fact.base.v"></span></li>
+      <li><span data-i18n="story.fact.lang.k"></span><span data-i18n="story.fact.lang.v"></span></li>
+      <li><span data-i18n="story.fact.motto.k"></span><span data-i18n="story.fact.motto.v"></span></li>
     </ul>
   </section>
 
   <!-- MISSIONS -->
   <section class="wrap missions" id="missions">
-    <div class="sechead reveal"><h2 class="grad-h">Missions</h2><span class="textlink">Career mode · 2011 – now</span></div>
+    <div class="sechead reveal"><h2 class="grad-h" data-i18n="section.missions"></h2><span class="textlink" data-i18n="section.missionsSub"></span></div>
     <div class="missions__list" id="missionList"></div>
   </section>
 
   <!-- ARSENAL -->
   <section class="band" id="arsenal">
     <div class="wrap">
-      <div class="sechead reveal"><h2 class="grad-h">Arsenal</h2><a class="textlink" href="mailto:bjoern.mueller92@gmail.com?subject=CV%20request">Request full CV <i>→</i></a></div>
+      <div class="sechead reveal"><h2 class="grad-h" data-i18n="section.arsenal"></h2><a class="textlink" href="mailto:bjoern.mueller92@gmail.com?subject=CV%20request"><span data-i18n="section.requestCV"></span> <i>→</i></a></div>
       <div class="arsenal" id="arsenalGrid"></div>
       <div class="stats reveal">
-        <div class="stats__head"><h3>Player Stats</h3><span>Self-assessed · updated 10/2026</span></div>
+        <div class="stats__head"><h3 data-i18n="stats.title"></h3><span data-i18n="stats.sub"></span></div>
         <div class="stats__grid" id="stats"></div>
       </div>
     </div>
@@ -130,7 +130,7 @@
 
   <!-- SIDE QUESTS -->
   <section class="wrap block" id="sidequests">
-    <div class="sechead reveal"><h2 class="grad-h">Side Quests</h2><span class="textlink">Hobbies &amp; crews</span></div>
+    <div class="sechead reveal"><h2 class="grad-h" data-i18n="section.quests"></h2><span class="textlink" data-i18n="section.questsSub"></span></div>
     <div class="news" id="quests"></div>
   </section>
 
@@ -142,7 +142,7 @@
 
   <!-- TRAINING -->
   <section class="wrap block" id="training">
-    <div class="sechead reveal"><h2 class="grad-h">Training Records</h2><span class="textlink">Education &amp; certifications</span></div>
+    <div class="sechead reveal"><h2 class="grad-h" data-i18n="section.training"></h2><span class="textlink" data-i18n="section.trainingSub"></span></div>
     <div class="news news--compact" id="trainingList"></div>
   </section>
 
@@ -154,26 +154,27 @@
     <img class="lockup__wordmark" src="img/v2/wordmark.png" alt="" width="1033" height="626" loading="lazy">
   </div>
   <a class="foot__cta" href="mailto:bjoern.mueller92@gmail.com">
-    <b><img src="img/v2/mark.png" alt="" width="337" height="153"> Get in touch</b>
-    <span>Product ownership, workflow automation or agentic AI on your roadmap? Send a message and get a reply within two days.</span>
+    <b><img src="img/v2/mark.png" alt="" width="337" height="153"> <span data-i18n="foot.cta.title"></span></b>
+    <span data-i18n="foot.cta.desc"></span>
   </a>
   <ul class="foot__social">
-    <li><a href="https://www.linkedin.com/in/bjoern-mueller" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a></li>
-    <li><a href="https://www.xing.com/profile/Bjoern_Mueller192" target="_blank" rel="noopener" aria-label="Xing"><svg viewBox="0 0 24 24"><path d="M5.3 6.6h3.2l1.9 3.4-2.6 4.6H4.6l2.6-4.6zM15.9 2.5h3.3l-5.5 9.8 3.6 6.9H14l-3.6-6.9z"/></svg></a></li>
-    <li><a href="mailto:bjoern.mueller92@gmail.com" aria-label="E-Mail"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zm2 2v.4l7 4.6 7-4.6V7zm14 2.8-7 4.6-7-4.6V17h14z"/></svg></a></li>
+    <li><a href="https://www.linkedin.com/in/bjoern-mueller" target="_blank" rel="noopener" data-i18n-aria="foot.linkedin"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a></li>
+    <li><a href="https://www.xing.com/profile/Bjoern_Mueller192" target="_blank" rel="noopener" data-i18n-aria="foot.xing"><svg viewBox="0 0 24 24"><path d="M5.3 6.6h3.2l1.9 3.4-2.6 4.6H4.6l2.6-4.6zM15.9 2.5h3.3l-5.5 9.8 3.6 6.9H14l-3.6-6.9z"/></svg></a></li>
+    <li><a href="mailto:bjoern.mueller92@gmail.com" data-i18n-aria="foot.email"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zm2 2v.4l7 4.6 7-4.6V7zm14 2.8-7 4.6-7-4.6V17h14z"/></svg></a></li>
   </ul>
   <ul class="foot__links">
-    <li><a href="#">Imprint</a></li>
-    <li><a href="#">Privacy</a></li>
+    <li><a href="#" data-i18n="foot.imprint"></a></li>
+    <li><a href="#" data-i18n="foot.privacy"></a></li>
   </ul>
+  <p class="foot__credit" data-i18n="foot.music"></p>
   <div class="rating">
-    <div class="rating__box"><b>T</b><small>TEAM<br>PLAYER</small></div>
-    <p>Agile Ceremonies, Strong Coffee, Frequent Travel, Mild Spanish, Repeated Use of Post-its.<span>In-Office and Remote Missions.</span></p>
+    <div class="rating__box"><b>T</b><small data-i18n="foot.rating.badge"></small></div>
+    <p><span data-i18n="foot.rating.line1"></span> <span data-i18n="foot.rating.line2"></span></p>
   </div>
 </footer>
 
 <dialog class="brief" id="brief" aria-labelledby="briefTitle">
-  <button class="brief__x" aria-label="Close">×</button>
+  <button class="brief__x" data-i18n-aria="brief.close">×</button>
   <figure class="brief__art" id="briefArt"></figure>
   <div class="brief__body">
     <p class="eyebrow" id="briefEye"></p>
@@ -185,6 +186,7 @@
   </div>
 </dialog>
 
+<script src="i18n.js"></script>
 <script src="v2.js"></script>
 </body>
 </html>

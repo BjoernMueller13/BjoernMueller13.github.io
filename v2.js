@@ -4,168 +4,410 @@
             06-Portfolio-Website/wissensstamm-anekdoten-hintergruende.md,
             02-Reisen/vergangene_reisen.md
    Images:  06-Portfolio-Website/images (cropped copies in img/v2/)
+   i18n:    all text fields are {de, en, es}; see i18n.js for
+            static UI strings and the radio/language switcher.
    ========================================================= */
+
+const { tr, getLang } = window.BM_I18N;
 
 /* ---------- content ---------- */
 const MISSIONS = [
   {
-    no: "07", dates: "11/2025 – Now", place: "Essen, Germany",
-    title: "Senior Consultant", sub: "Exxeta · Business Process Automation",
-    desc: "Process expert and agile coach in HiveMind, the company-wide automation and AI program. Builds n8n and Power Platform workflows across JIRA, SAP, SharePoint and Microsoft 365.",
-    reward: "Agentic AI unlocked", pill: "pink",
+    no: "07", dates: "11/2025 – Now",
+    place: { de: "Essen, Deutschland", en: "Essen, Germany", es: "Essen, Alemania" },
+    title: { de: "Senior Consultant", en: "Senior Consultant", es: "Senior Consultant" },
+    sub: { de: "Exxeta · Business Process Automation", en: "Exxeta · Business Process Automation", es: "Exxeta · Business Process Automation" },
+    desc: {
+      de: "Prozessexperte und Agile Coach im unternehmensweiten Automatisierungs- und KI-Programm HiveMind. Baut n8n- und Power-Platform-Workflows über JIRA, SAP, SharePoint und Microsoft 365 hinweg.",
+      en: "Process expert and agile coach in HiveMind, the company-wide automation and AI program. Builds n8n and Power Platform workflows across JIRA, SAP, SharePoint and Microsoft 365.",
+      es: "Experto en procesos y agile coach en HiveMind, el programa corporativo de automatización e IA. Desarrolla flujos de trabajo con n8n y Power Platform integrando JIRA, SAP, SharePoint y Microsoft 365."
+    },
+    reward: { de: "Agentic AI freigeschaltet", en: "Agentic AI unlocked", es: "IA agéntica desbloqueada" },
     art: { pal: "neon", motif: "nodes", mx: 640, my: 210, ms: .8, city: true, sunX: 610, sunR: 110 },
     windowImg: "img/v2/intel-n8n.jpg", windowTitle: "n8n · agent workflow",
-    bullets: [
-      "Analyzes and optimizes end-to-end business processes as the interface between business, IT and management; designs target processes including governance and role models",
-      "Designs and implements workflow automations with n8n and Microsoft Power Platform, integrating JIRA, SAP, SharePoint, Microsoft 365 and Entra ID",
-      "Identifies opportunities for AI-driven processes and designs agent-based, Copilot and knowledge-platform solutions, including data, process and access-rights concepts",
-      "Advises business units and executives, facilitates workshops and coaches teams on agile working, process management and automation",
-      "Owns use-case prioritization and the build-out of a scalable automation and AI platform as Process Expert & Agile Coach in the program “HiveMind”",
-      "Defines KPIs to measure the success of automation initiatives and supports rollout and adoption"
-    ],
+    pill: "pink",
+    bullets: {
+      de: [
+        "Analysiert und optimiert End-to-End-Geschäftsprozesse als Schnittstelle zwischen Fachbereich, IT und Management; gestaltet Zielprozesse inklusive Governance- und Rollenmodellen",
+        "Konzipiert und implementiert Workflow-Automatisierungen mit n8n und Microsoft Power Platform und integriert JIRA, SAP, SharePoint, Microsoft 365 und Entra ID",
+        "Identifiziert Potenziale für KI-gestützte Prozesse und entwirft agentenbasierte Copilot- und Wissensplattform-Lösungen inklusive Daten-, Prozess- und Berechtigungskonzepten",
+        "Berät Fachbereiche und Führungskräfte, moderiert Workshops und coacht Teams in agilem Arbeiten, Prozessmanagement und Automatisierung",
+        "Verantwortet als Process Expert & Agile Coach im Programm „HiveMind“ die Priorisierung von Use Cases und den Aufbau einer skalierbaren Automatisierungs- und KI-Plattform",
+        "Definiert KPIs zur Erfolgsmessung von Automatisierungsinitiativen und begleitet Rollout und Adoption"
+      ],
+      en: [
+        "Analyzes and optimizes end-to-end business processes as the interface between business, IT and management; designs target processes including governance and role models",
+        "Designs and implements workflow automations with n8n and Microsoft Power Platform, integrating JIRA, SAP, SharePoint, Microsoft 365 and Entra ID",
+        "Identifies opportunities for AI-driven processes and designs agent-based, Copilot and knowledge-platform solutions, including data, process and access-rights concepts",
+        "Advises business units and executives, facilitates workshops and coaches teams on agile working, process management and automation",
+        "Owns use-case prioritization and the build-out of a scalable automation and AI platform as Process Expert & Agile Coach in the program “HiveMind”",
+        "Defines KPIs to measure the success of automation initiatives and supports rollout and adoption"
+      ],
+      es: [
+        "Analiza y optimiza procesos de negocio de principio a fin como interfaz entre negocio, TI y dirección; diseña procesos objetivo incluyendo modelos de gobernanza y roles",
+        "Diseña e implementa automatizaciones de flujos de trabajo con n8n y Microsoft Power Platform, integrando JIRA, SAP, SharePoint, Microsoft 365 y Entra ID",
+        "Identifica oportunidades para procesos impulsados por IA y diseña soluciones basadas en agentes, Copilot y plataformas de conocimiento, incluyendo conceptos de datos, procesos y permisos",
+        "Asesora a áreas de negocio y directivos, facilita talleres y forma a equipos en trabajo ágil, gestión de procesos y automatización",
+        "Como Process Expert & Agile Coach en el programa «HiveMind», lidera la priorización de casos de uso y la construcción de una plataforma escalable de automatización e IA",
+        "Define KPIs para medir el éxito de las iniciativas de automatización y acompaña el despliegue y la adopción"
+      ]
+    },
     stack: ["n8n", "Power Platform", "Microsoft Copilot", "JIRA", "Confluence", "SharePoint", "Microsoft 365", "Entra ID", "SAP", "HubSpot", "APIs"],
-    intel: [{ src: "img/v2/intel-n8n.jpg", cap: "n8n · AI-agent workflow with chat model, memory, Entra ID and Jira tools (original screenshot, example)" }]
+    intel: [{ src: "img/v2/intel-n8n.jpg", cap: {
+      de: "n8n · KI-Agent-Workflow mit Chat-Modell, Memory, Entra-ID- und Jira-Tools (Original-Screenshot, Beispiel)",
+      en: "n8n · AI-agent workflow with chat model, memory, Entra ID and Jira tools (original screenshot, example)",
+      es: "n8n · flujo de trabajo de agente de IA con modelo de chat, memoria y herramientas de Entra ID y Jira (captura original, ejemplo)"
+    } }]
   },
   {
-    no: "06", dates: "04/2023 – 10/2024", place: "Remote · for CARIAD / Volkswagen",
-    title: "Product Owner", sub: "itemis AG · for CARIAD",
-    desc: "Led a 7-person SAFe team building an architecture modeling tool for CARIAD. The new toolchain cut code generation and integration from 12 weeks to under 4 days.",
-    reward: "12 weeks → 4 days", pill: "peach", left: true,
+    no: "06", dates: "04/2023 – 10/2024",
+    place: { de: "Remote · für CARIAD / Volkswagen", en: "Remote · for CARIAD / Volkswagen", es: "Remoto · para CARIAD / Volkswagen" },
+    title: { de: "Product Owner", en: "Product Owner", es: "Product Owner" },
+    sub: { de: "itemis AG · für CARIAD", en: "itemis AG · for CARIAD", es: "itemis AG · para CARIAD" },
+    desc: {
+      de: "Leitete ein 7-köpfiges SAFe-Team beim Aufbau eines Architektur-Modellierungstools für CARIAD. Die neue Toolchain verkürzte Codegenerierung und Integration von 12 Wochen auf unter 4 Tage.",
+      en: "Led a 7-person SAFe team building an architecture modeling tool for CARIAD. The new toolchain cut code generation and integration from 12 weeks to under 4 days.",
+      es: "Lideró un equipo SAFe de 7 personas que construyó una herramienta de modelado de arquitectura para CARIAD. La nueva cadena de herramientas redujo la generación e integración de código de 12 semanas a menos de 4 días."
+    },
+    reward: { de: "12 Wochen → 4 Tage", en: "12 weeks → 4 days", es: "12 semanas → 4 días" },
     img: "img/v2/intel-vwos.jpg", pos: "60% 50%", posM: "42% 50%", grade: true,
-    bullets: [
-      "Led a cross-functional, 7-person agile team (5 software engineers, 1 requirements engineer, 1 Scrum Master) under SAFe principles",
-      "Played a key role in introducing a new toolchain that cut CARIAD’s code generation and integration process from an average of 12 weeks to under 4 days",
-      "Developed 4 junior engineers to mid-level proficiency within about one year through weekly team meetings and individual feedback",
-      "Owned backlog creation, grooming and prioritization as well as (pre-)PI planning, story breakdown, dependency clarification and estimation",
-      "Primary point of contact for CARIAD; aligned weekly with product manager, system architect and release train engineer and presented features in system demos"
-    ],
+    pill: "peach", left: true,
+    bullets: {
+      de: [
+        "Leitete ein funktionsübergreifendes, 7-köpfiges agiles Team (5 Softwareentwickler, 1 Requirements Engineer, 1 Scrum Master) nach SAFe-Prinzipien",
+        "Trug maßgeblich zur Einführung einer neuen Toolchain bei, die CARIADs Codegenerierungs- und Integrationsprozess von durchschnittlich 12 Wochen auf unter 4 Tage verkürzte",
+        "Entwickelte 4 Junior-Engineers innerhalb von rund einem Jahr durch wöchentliche Team-Meetings und individuelles Feedback zu Mid-Level-Niveau",
+        "Verantwortete Backlog-Erstellung, -Pflege und -Priorisierung sowie (Pre-)PI-Planning, Story-Breakdown, Abhängigkeitsklärung und Aufwandsschätzung",
+        "Primärer Ansprechpartner für CARIAD; stimmte sich wöchentlich mit Product Manager, System-Architekt und Release Train Engineer ab und präsentierte neue Features in System-Demos"
+      ],
+      en: [
+        "Led a cross-functional, 7-person agile team (5 software engineers, 1 requirements engineer, 1 Scrum Master) under SAFe principles",
+        "Played a key role in introducing a new toolchain that cut CARIAD’s code generation and integration process from an average of 12 weeks to under 4 days",
+        "Developed 4 junior engineers to mid-level proficiency within about one year through weekly team meetings and individual feedback",
+        "Owned backlog creation, grooming and prioritization as well as (pre-)PI planning, story breakdown, dependency clarification and estimation",
+        "Primary point of contact for CARIAD; aligned weekly with product manager, system architect and release train engineer and presented features in system demos"
+      ],
+      es: [
+        "Lideró un equipo ágil multidisciplinar de 7 personas (5 ingenieros de software, 1 requirements engineer, 1 Scrum Master) bajo principios SAFe",
+        "Desempeñó un papel clave en la introducción de una nueva cadena de herramientas que redujo el proceso de generación e integración de código de CARIAD de una media de 12 semanas a menos de 4 días",
+        "Formó a 4 ingenieros junior hasta nivel medio en aproximadamente un año mediante reuniones semanales de equipo y feedback individual",
+        "Responsable de la creación, refinamiento y priorización del backlog, así como de la planificación (pre-)PI, el desglose de historias, la clarificación de dependencias y la estimación",
+        "Punto de contacto principal para CARIAD; se coordinó semanalmente con el product manager, el arquitecto de sistemas y el release train engineer, y presentó nuevas funcionalidades en las demos del sistema"
+      ]
+    },
     stack: ["JIRA", "Confluence", "Miro", "MPS", "Notion", "Google Workspace", "SAFe"],
     intel: [
-      { src: "img/v2/intel-mps.jpg", cap: "JetBrains MPS · text and diagram projection of the same model (original screenshot)" },
-      { src: "img/v2/intel-vwos.jpg", cap: "VW.OS software layers (original graphic, CARIAD)" },
-      { src: "img/v2/intel-cea.jpg", cap: "Context: zonal E/E architecture with central computer (original graphic, CARIAD China)" }
+      { src: "img/v2/intel-mps.jpg", cap: {
+        de: "JetBrains MPS · Text- und Diagramm-Projektion desselben Modells (Original-Screenshot)",
+        en: "JetBrains MPS · text and diagram projection of the same model (original screenshot)",
+        es: "JetBrains MPS · proyección en texto y diagrama del mismo modelo (captura original)"
+      } },
+      { src: "img/v2/intel-vwos.jpg", cap: {
+        de: "VW.OS-Softwareebenen (Original-Grafik, CARIAD)",
+        en: "VW.OS software layers (original graphic, CARIAD)",
+        es: "Capas de software de VW.OS (gráfico original, CARIAD)"
+      } },
+      { src: "img/v2/intel-cea.jpg", cap: {
+        de: "Kontext: zonale E/E-Architektur mit Zentralrechner (Original-Grafik, CARIAD China)",
+        en: "Context: zonal E/E architecture with central computer (original graphic, CARIAD China)",
+        es: "Contexto: arquitectura E/E zonal con ordenador central (gráfico original, CARIAD China)"
+      } }
     ]
   },
   {
-    no: "05", dates: "02/2020 – 03/2023", place: "Munich / Wuppertal",
-    title: "Sensing Function Owner", sub: "Aptiv · Product Owner & Cluster Lead from 11/2021",
-    desc: "Owned camera-based object detection for BMW’s Level 2+ to Level 3 automated driving, supplied by Mobileye. Grew a cluster of up to 6 function owners and 4 master’s students.",
-    reward: "Promoted to Cluster Lead", pill: "lime",
+    no: "05", dates: "02/2020 – 03/2023",
+    place: { de: "München / Wuppertal", en: "Munich / Wuppertal", es: "Múnich / Wuppertal" },
+    title: { de: "Sensing Function Owner", en: "Sensing Function Owner", es: "Sensing Function Owner" },
+    sub: { de: "Aptiv · ab 11/2021 zusätzlich Product Owner & Cluster Lead", en: "Aptiv · Product Owner & Cluster Lead from 11/2021", es: "Aptiv · Product Owner y Cluster Lead desde 11/2021" },
+    desc: {
+      de: "Verantwortete die kamerabasierte Objekterkennung für BMWs automatisiertes Fahren von Level 2+ bis Level 3, zugeliefert von Mobileye. Baute einen Cluster von bis zu 6 Function Ownern und 4 Masterstudierenden auf.",
+      en: "Owned camera-based object detection for BMW’s Level 2+ to Level 3 automated driving, supplied by Mobileye. Grew a cluster of up to 6 function owners and 4 master’s students.",
+      es: "Responsable de la detección de objetos basada en cámara para la conducción automatizada de BMW (Nivel 2+ a Nivel 3), suministrada por Mobileye. Hizo crecer un cluster de hasta 6 function owners y 4 estudiantes de máster."
+    },
+    reward: { de: "Zum Cluster Lead befördert", en: "Promoted to Cluster Lead", es: "Ascenso a Cluster Lead" },
     img: "img/v2/mission-aptiv.jpg", pos: "50% 72%", posM: "40% 60%",
-    bullets: [
-      "End-to-end responsibility for the upper V-model levels (Sys1, Sys2, partially Sys3) of the camera-based object detection software for BMW Service Pack 2021 (iNext, 5 Series, 7 Series)",
-      "Took on product ownership from November 2021 for a cluster of up to 6 function owners and 4 master’s students (Road Marking Detection, Visual Landmarks)",
-      "Facilitated daily scrums, sprint plannings, refinements and retrospectives; drove backlog management and PI planning",
-      "First point of contact for problem tickets toward BMW; coordinated HIL/SIL and real-world test data analysis and SOTIF homologation analyses",
-      "Represented Aptiv in workshops with OEMs and Tier-2 suppliers"
-    ],
+    pill: "lime",
+    bullets: {
+      de: [
+        "End-to-End-Verantwortung für die oberen V-Modell-Ebenen (Sys1, Sys2, teilweise Sys3) der kamerabasierten Objekterkennungs-Software für das BMW Service Pack 2021 (iNext, 5er, 7er) für automatisiertes Fahren Level 2+ bis Level 3",
+        "Übernahm ab November 2021 zusätzlich die Produktverantwortung für einen auf bis zu 6 Function Owner und 4 Masterstudierende gewachsenen Cluster (Road Marking Detection, Visual Landmarks)",
+        "Moderierte zentrale agile Zeremonien (Daily Scrums, Sprint Plannings, Refinements, Retrospektiven) und trieb Backlog-Management sowie PI-Planning voran",
+        "Erster Ansprechpartner für Problemtickets mit Gesamtverantwortung gegenüber Kunde BMW; koordinierte Testdatenanalysen (HIL/SIL, Realfahrten) und Homologationsanalysen nach SOTIF",
+        "Vertrat Aptiv in Workshops mit OEMs und Tier-2-Zulieferern"
+      ],
+      en: [
+        "End-to-end responsibility for the upper V-model levels (Sys1, Sys2, partially Sys3) of the camera-based object detection software for BMW Service Pack 2021 (iNext, 5 Series, 7 Series)",
+        "Took on product ownership from November 2021 for a cluster of up to 6 function owners and 4 master’s students (Road Marking Detection, Visual Landmarks)",
+        "Facilitated daily scrums, sprint plannings, refinements and retrospectives; drove backlog management and PI planning",
+        "First point of contact for problem tickets toward BMW; coordinated HIL/SIL and real-world test data analysis and SOTIF homologation analyses",
+        "Represented Aptiv in workshops with OEMs and Tier-2 suppliers"
+      ],
+      es: [
+        "Responsabilidad de extremo a extremo de los niveles superiores del modelo en V (Sys1, Sys2, parcialmente Sys3) del software de detección de objetos basado en cámara para el BMW Service Pack 2021 (iNext, Serie 5, Serie 7), para conducción automatizada de Nivel 2+ a Nivel 3",
+        "Asumió desde noviembre de 2021 la responsabilidad de producto de un cluster que creció hasta 6 function owners y 4 estudiantes de máster (Road Marking Detection, Visual Landmarks)",
+        "Facilitó las ceremonias ágiles principales (dailies, sprint plannings, refinements, retrospectivas) e impulsó la gestión del backlog y el PI planning",
+        "Primer punto de contacto para incidencias con responsabilidad de extremo a extremo frente al cliente BMW; coordinó el análisis de datos de pruebas (HIL/SIL, conducción real) y los análisis de homologación según SOTIF",
+        "Representó a Aptiv en talleres con fabricantes (OEM) y proveedores de nivel 2"
+      ]
+    },
     stack: ["DOORS", "Confluence", "JIRA", "MS Project", "Python", "SOTIF", "Mobileye"],
     intel: [
-      { src: "img/v2/card-aptiv.jpg", cap: "Object detection, Vice-style (GTA-like artwork)" },
-      { src: "img/v2/intel-sensorset.jpg", cap: "Sensor set: camera, radar, LiDAR, ultrasonic (AI-generated illustration)" },
-      { src: "img/v2/intel-inext.jpg", cap: "BMW Vision iNEXT, part of the Service Pack 2021 scope (original photo)" }
+      { src: "img/v2/card-aptiv.jpg", cap: {
+        de: "Objekterkennung im Vice-Stil (GTA-artiges Artwork)", en: "Object detection, Vice-style (GTA-like artwork)", es: "Detección de objetos al estilo Vice (ilustración de estilo GTA)"
+      } },
+      { src: "img/v2/intel-sensorset.jpg", cap: {
+        de: "Sensor-Set: Kamera, Radar, LiDAR, Ultraschall (KI-generierte Illustration)", en: "Sensor set: camera, radar, LiDAR, ultrasonic (AI-generated illustration)", es: "Conjunto de sensores: cámara, radar, LiDAR, ultrasonidos (ilustración generada por IA)"
+      } },
+      { src: "img/v2/intel-inext.jpg", cap: {
+        de: "BMW Vision iNEXT, Teil des Service-Pack-2021-Umfangs (Originalfoto)", en: "BMW Vision iNEXT, part of the Service Pack 2021 scope (original photo)", es: "BMW Vision iNEXT, parte del alcance del Service Pack 2021 (foto original)"
+      } }
     ]
   },
   {
-    no: "04", dates: "12/2018 – 01/2020", place: "Munich · for the BMW Group",
-    title: "Chief Engineer ADAS", sub: "EDAG Engineering · for BMW",
-    desc: "Technical counterpart to BMW’s sub-project lead, steering supplier Valeo on the automated parking ECU: architecture reviews, degradation concepts, Ethernet analysis.",
-    reward: "Supplier steering", pill: "lilac", left: true,
+    no: "04", dates: "12/2018 – 01/2020",
+    place: { de: "München · im Auftrag der BMW Group", en: "Munich · for the BMW Group", es: "Múnich · por encargo del Grupo BMW" },
+    title: { de: "Chief Engineer ADAS", en: "Chief Engineer ADAS", es: "Chief Engineer ADAS" },
+    sub: { de: "EDAG Engineering · für BMW", en: "EDAG Engineering · for BMW", es: "EDAG Engineering · para BMW" },
+    desc: {
+      de: "Technisches Pendant zum BMW-Teilprojektleiter, steuerte Zulieferer Valeo beim Steuergerät für automatisiertes Parken: Architektur-Reviews, Degradationskonzepte, Ethernet-Analyse.",
+      en: "Technical counterpart to BMW’s sub-project lead, steering supplier Valeo on the automated parking ECU: architecture reviews, degradation concepts, Ethernet analysis.",
+      es: "Contraparte técnica del responsable de subproyecto de BMW, dirigiendo al proveedor Valeo en la unidad de control de aparcamiento automatizado: revisiones de arquitectura, conceptos de degradación, análisis Ethernet."
+    },
+    reward: { de: "Lieferantensteuerung", en: "Supplier steering", es: "Dirección de proveedores" },
     img: "img/v2/mission-edag.jpg", pos: "50% 60%", posM: "54% 40%",
-    bullets: [
-      "Directed supplier Valeo for the automated parking control unit of BMW Service Pack 2021; reviewed hardware, software and system architecture",
-      "Created degradation and error-handling concepts",
-      "Led hardware design reviews on electrical/electromagnetic robustness and base software reviews on ECU boot behavior",
-      "Analyzed Ethernet bus communication with Wireshark"
-    ],
+    pill: "lilac", left: true,
+    bullets: {
+      de: [
+        "Steuerte Zulieferer Valeo für das Steuergerät für automatisiertes Parken des BMW Service Pack 2021; reviewte Hardware-, Software- und Systemarchitektur",
+        "Erstellte Degradations- und Fehlerbehandlungskonzepte",
+        "Leitete Hardware-Design-Reviews zu elektrischer/elektromagnetischer Robustheit sowie Basissoftware-Reviews zum Bootverhalten der Steuergeräte",
+        "Analysierte die Ethernet-Buskommunikation mit Wireshark"
+      ],
+      en: [
+        "Directed supplier Valeo for the automated parking control unit of BMW Service Pack 2021; reviewed hardware, software and system architecture",
+        "Created degradation and error-handling concepts",
+        "Led hardware design reviews on electrical/electromagnetic robustness and base software reviews on ECU boot behavior",
+        "Analyzed Ethernet bus communication using Wireshark"
+      ],
+      es: [
+        "Dirigió al proveedor Valeo para la unidad de control de aparcamiento automatizado del BMW Service Pack 2021; revisó la arquitectura de hardware, software y sistema",
+        "Creó conceptos de degradación y gestión de errores",
+        "Lideró revisiones de diseño de hardware sobre robustez eléctrica/electromagnética y revisiones de software base sobre el comportamiento de arranque de las unidades de control",
+        "Analizó la comunicación del bus Ethernet con Wireshark"
+      ]
+    },
     stack: ["DOORS", "JIRA", "Confluence", "Wireshark", "E-Sys", "Ediabas"],
     intel: [
-      { src: "img/v2/intel-fiz.jpg", cap: "BMW headquarters and BMW Welt, Munich (original photo)" },
-      { src: "img/v2/intel-welt.jpg", cap: "View from BMW Welt to the four-cylinder tower (original photo)" },
-      { src: "img/v2/intel-inext.jpg", cap: "BMW Vision iNEXT (original photo)" }
+      { src: "img/v2/intel-fiz.jpg", cap: {
+        de: "BMW-Zentrale und BMW Welt, München (Originalfoto)", en: "BMW headquarters and BMW Welt, Munich (original photo)", es: "Sede central de BMW y BMW Welt, Múnich (foto original)"
+      } },
+      { src: "img/v2/intel-welt.jpg", cap: {
+        de: "Blick von der BMW Welt zum Vierzylinder-Turm (Originalfoto)", en: "View from BMW Welt to the four-cylinder tower (original photo)", es: "Vista desde BMW Welt hacia la torre de los cuatro cilindros (foto original)"
+      } },
+      { src: "img/v2/intel-inext.jpg", cap: {
+        de: "BMW Vision iNEXT (Originalfoto)", en: "BMW Vision iNEXT (original photo)", es: "BMW Vision iNEXT (foto original)"
+      } }
     ]
   },
   {
-    no: "03", dates: "10/2017 – 07/2018", place: "Shanghai, China",
-    title: "Customer Data Analytics", sub: "BMW Technology Office China · Working Student",
-    desc: "Built Python pipelines on a Hadoop cluster for real customer vehicle data from Chinese traffic and ran data-collection drives in Beijing, Shanghai and Guangzhou.",
-    reward: "“Far exceeds requirements”", pill: "pink", left: true,
+    no: "03", dates: "10/2017 – 07/2018",
+    place: { de: "Shanghai, China", en: "Shanghai, China", es: "Shanghái, China" },
+    title: { de: "Customer Data Analytics", en: "Customer Data Analytics", es: "Customer Data Analytics" },
+    sub: { de: "BMW Technology Office China · Werkstudent", en: "BMW Technology Office China · Working Student", es: "BMW Technology Office China · Estudiante en prácticas" },
+    desc: {
+      de: "Baute Python-Pipelines auf einem Hadoop-Cluster für reale Kundenfahrzeugdaten aus dem chinesischen Straßenverkehr auf und organisierte Datenerhebungsfahrten in Peking, Shanghai und Guangzhou.",
+      en: "Built Python pipelines on a Hadoop cluster for real customer vehicle data from Chinese traffic and ran data-collection drives in Beijing, Shanghai and Guangzhou.",
+      es: "Desarrolló pipelines en Python sobre un cluster Hadoop para datos reales de vehículos de clientes del tráfico chino y organizó viajes de recogida de datos en Pekín, Shanghái y Cantón."
+    },
+    reward: { de: "„Übertrifft die Anforderungen deutlich“", en: "“Far exceeds requirements”", es: "«Supera ampliamente los requisitos»" },
     img: "img/v2/mission-bmwchina.jpg", pos: "50% 50%", posM: "88% 50%",
-    bullets: [
-      "Developed algorithms to pre-check and evaluate time-series customer vehicle data (Hadoop, Python/Pandas/Matplotlib) for “Customer Data Analytics China”",
-      "Organized data-collection drives in Beijing, Shanghai and Guangzhou and logged CAN and FlexRay bus data from BMW 3 Series, 5 Series and X1",
-      "Top ratings for reliability, resilience and initiative across 202 working days with zero sick days",
-      "Master’s thesis on parking-maneuver detection from CAN/FlexRay data grew out of this role"
-    ],
+    pill: "pink", left: true,
+    bullets: {
+      de: [
+        "Entwickelte Algorithmen zur Vorprüfung und Zeitreihenauswertung von Kundenfahrzeugdaten (Hadoop, Python/Pandas/Matplotlib) für das Projekt „Customer Data Analytics China“",
+        "Organisierte Datenerhebungsfahrten in Peking, Shanghai und Guangzhou und protokollierte CAN- und FlexRay-Busdaten von BMW 3er, 5er und X1",
+        "Erzielte Bestbewertungen für Zuverlässigkeit, Belastbarkeit und Eigeninitiative über 202 Arbeitstage bei null Krankheitstagen",
+        "Aus dieser Station entstand die Masterarbeit zur Parkmanöver-Erkennung aus CAN-/FlexRay-Daten"
+      ],
+      en: [
+        "Developed algorithms to pre-check and evaluate time-series customer vehicle data (Hadoop, Python/Pandas/Matplotlib) for “Customer Data Analytics China”",
+        "Organized data-collection drives in Beijing, Shanghai and Guangzhou and logged CAN and FlexRay bus data from BMW 3 Series, 5 Series and X1",
+        "Top ratings for reliability, resilience and initiative across 202 working days with zero sick days",
+        "Master’s thesis on parking-maneuver detection from CAN/FlexRay data grew out of this role"
+      ],
+      es: [
+        "Desarrolló algoritmos para la verificación previa y evaluación de series temporales de datos de vehículos de clientes (Hadoop, Python/Pandas/Matplotlib) para el proyecto «Customer Data Analytics China»",
+        "Organizó viajes de recogida de datos en Pekín, Shanghái y Cantón y registró datos de bus CAN y FlexRay de BMW Serie 3, Serie 5 y X1",
+        "Obtuvo las máximas valoraciones en fiabilidad, resiliencia e iniciativa durante 202 días laborables sin ninguna baja por enfermedad",
+        "De esta etapa surgió el trabajo de fin de máster sobre detección de maniobras de aparcamiento a partir de datos CAN/FlexRay"
+      ]
+    },
     stack: ["Python", "Pandas", "Matplotlib", "Hadoop", "Microsoft Azure", "CAN", "FlexRay"],
-    intel: [{ src: "img/v2/intel-shanghai.jpg", cap: "BMW office building, Shanghai (original photo)" }]
+    intel: [{ src: "img/v2/intel-shanghai.jpg", cap: {
+      de: "BMW-Bürogebäude, Shanghai (Originalfoto)", en: "BMW office building, Shanghai (original photo)", es: "Edificio de oficinas de BMW, Shanghái (foto original)"
+    } }]
   },
   {
-    no: "01", dates: "09/2011 – 10/2017", place: "Heiligenhaus, Germany",
-    title: "From Workshop to Engineering", sub: "Kiekert AG · Apprentice, Intern, Working Student",
-    desc: "Industrial mechanic apprenticeship inside a cooperative engineering degree. Designed test rigs for automotive door locks in CATIA V5, including a pneumatic rig from −40 °C to +85 °C.",
-    reward: "Origin story", pill: "peach",
+    no: "01", dates: "09/2011 – 10/2017",
+    place: { de: "Heiligenhaus, Deutschland", en: "Heiligenhaus, Germany", es: "Heiligenhaus, Alemania" },
+    title: { de: "Von der Werkstatt in die Entwicklung", en: "From Workshop to Engineering", es: "Del taller a la ingeniería" },
+    sub: { de: "Kiekert AG · Azubi, Praktikant, Werkstudent", en: "Kiekert AG · Apprentice, Intern, Working Student", es: "Kiekert AG · Aprendiz, becario, estudiante en prácticas" },
+    desc: {
+      de: "Ausbildung zum Industriemechaniker im Rahmen eines dualen Ingenieurstudiums. Konstruierte Prüfstände für Autotürschlösser in CATIA V5, darunter einen Pneumatik-Prüfstand von −40 °C bis +85 °C.",
+      en: "Industrial mechanic apprenticeship inside a cooperative engineering degree. Designed test rigs for automotive door locks in CATIA V5, including a pneumatic rig from −40 °C to +85 °C.",
+      es: "Formación como mecánico industrial dentro de un grado dual en ingeniería. Diseñó bancos de pruebas para cerraduras de puertas de automóviles en CATIA V5, incluido un banco neumático de −40 °C a +85 °C."
+    },
+    reward: { de: "Ursprungsgeschichte", en: "Origin story", es: "Historia de origen" },
     art: { pal: "jade", motif: "gear", mx: 260, my: 230, ms: 1.2, city: false, sunX: 560 },
-    bullets: [
-      "Vocational qualification as industrial mechanic (maintenance), IHK Düsseldorf, as part of a cooperative engineering degree",
-      "Designed test rigs and fixtures for automotive door locks in CATIA V5",
-      "Built a pneumatic durability test rig for −40 °C to +85 °C and a PCB for signal conversion",
-      "Bachelor’s thesis on pneumatic actuation for durability test rigs"
-    ],
+    pill: "peach",
+    bullets: {
+      de: [
+        "Ausbildung zum Industriemechaniker (Fachrichtung Instandhaltung), IHK Düsseldorf, im Rahmen eines dualen Ingenieurstudiums",
+        "Konstruierte Prüfstände und Vorrichtungen für Autotürschlösser in CATIA V5",
+        "Baute einen pneumatischen Dauerlauf-Prüfstand für −40 °C bis +85 °C sowie eine Platine zur Signalwandlung",
+        "Bachelorarbeit zur pneumatischen Aktuierung für Dauerlauf-Prüfstände"
+      ],
+      en: [
+        "Vocational qualification as industrial mechanic (maintenance), IHK Düsseldorf, as part of a cooperative engineering degree",
+        "Designed test rigs and fixtures for automotive door locks in CATIA V5",
+        "Built a pneumatic durability test rig for −40 °C to +85 °C and a PCB for signal conversion",
+        "Bachelor’s thesis on pneumatic actuation for durability test rigs"
+      ],
+      es: [
+        "Formación profesional como mecánico industrial (mantenimiento), IHK Düsseldorf, dentro de un grado dual en ingeniería",
+        "Diseñó bancos de pruebas y utillajes para cerraduras de puertas de automóviles en CATIA V5",
+        "Construyó un banco de pruebas de durabilidad neumático para −40 °C a +85 °C y una placa de circuito para conversión de señal",
+        "Trabajo de fin de grado sobre accionamiento neumático para bancos de pruebas de durabilidad"
+      ]
+    },
     stack: ["CATIA V5", "PLC / Simatic S7", "Pneumatics", "PCB design"],
     intel: []
   }
 ];
 
 const FEATURED = [
-  { eye: "Now playing", title: "Agentic AI\n@ Exxeta", img: "img/v2/card-exxeta.jpg", alt: "Björn in a futuristic glass hall with holographic models", m: 0 },
-  { eye: "Boss fight", title: "Level 3\nfor BMW", img: "img/v2/card-aptiv.jpg", alt: "Street scene with LiDAR rings and detection boxes around cars", m: 2 },
-  { eye: "Unlocked", title: "Shanghai\n2017", img: "img/v2/card-shanghai.jpg", alt: "Illuminated BMW office dome in Shanghai at night", m: 4 }
+  { eye: { de: "Läuft gerade", en: "Now playing", es: "Sonando ahora" }, title: { de: "Agentic AI\n@ Exxeta", en: "Agentic AI\n@ Exxeta", es: "IA Agéntica\n@ Exxeta" }, img: "img/v2/card-exxeta.jpg", alt: { de: "Björn in einer futuristischen Glashalle mit holografischen Modellen", en: "Björn in a futuristic glass hall with holographic models", es: "Björn en una sala futurista de cristal con modelos holográficos" }, m: 0 },
+  { eye: { de: "Bosskampf", en: "Boss fight", es: "Combate final" }, title: { de: "Level 3\nfür BMW", en: "Level 3\nfor BMW", es: "Nivel 3\npara BMW" }, img: "img/v2/card-aptiv.jpg", alt: { de: "Straßenszene mit LiDAR-Ringen und Erkennungsboxen um Autos", en: "Street scene with LiDAR rings and detection boxes around cars", es: "Escena callejera con anillos LiDAR y cajas de detección alrededor de coches" }, m: 2 },
+  { eye: { de: "Freigeschaltet", en: "Unlocked", es: "Desbloqueado" }, title: { de: "Shanghai\n2017", en: "Shanghai\n2017", es: "Shanghái\n2017" }, img: "img/v2/card-shanghai.jpg", alt: { de: "Beleuchtete BMW-Bürokuppel in Shanghai bei Nacht", en: "Illuminated BMW office dome in Shanghai at night", es: "Cúpula iluminada de las oficinas de BMW en Shanghái de noche" }, m: 4 }
 ];
 
 const ARSENAL = [
-  { eye: "Primary", title: "Product Ownership & Agile Delivery", art: { pal: "miami", motif: "people", mx: 400, my: 170, ms: 1.1, sunX: 400, city: true },
-    tags: ["Product Ownership", "Requirements Engineering (IREB)", "Backlog & Roadmap", "Stakeholder Management", "SAFe", "Scrum (PSM I)", "Kanban"] },
-  { eye: "Special", title: "Workflow Automation & AI", art: { pal: "neon", motif: "nodes", mx: 400, my: 170, ms: 1, sunX: 400, city: true },
-    tags: ["n8n", "Power Automate", "Microsoft Copilot", "Agent-based systems", "Prompt engineering", "Enterprise AI architecture", "Knowledge management"] },
-  { eye: "Sidearm", title: "Data & Programming", art: { pal: "night", motif: "code", mx: 400, my: 170, ms: 1.1, stars: true, sunX: 400, sunR: 90, city: true },
-    tags: ["Python (PCEP)", "SQL / NoSQL", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Jupyter"] },
-  { eye: "Utility", title: "Enterprise Systems & Tools", art: { pal: "teal", motif: "chart", mx: 400, my: 170, ms: 1.1, sunX: 400, city: true },
-    tags: ["JIRA", "Confluence", "DOORS", "SharePoint", "Microsoft 365", "Entra ID", "SAP", "HubSpot", "MS Project", "Miro"] },
-  { eye: "Heavy", title: "Domain Expertise: Automotive & ADAS", wide: true, img: "img/v2/arsenal-domain.jpg", alt: "Concept SUV in a neon-lit tunnel",
-    tags: ["Computer vision & object detection", "Automated driving L2–L3", "ISO 26262 functional safety", "SOTIF", "CAN / FlexRay / Ethernet", "V-model"] }
+  { eye: { de: "Primärwaffe", en: "Primary", es: "Arma principal" }, title: { de: "Product Ownership & Agile Delivery", en: "Product Ownership & Agile Delivery", es: "Product Ownership y entrega ágil" },
+    art: { pal: "miami", motif: "people", mx: 400, my: 170, ms: 1.1, sunX: 400, city: true },
+    tags: {
+      de: ["Product Ownership", "Requirements Engineering (IREB)", "Backlog & Roadmap", "Stakeholder-Management", "SAFe", "Scrum (PSM I)", "Kanban"],
+      en: ["Product Ownership", "Requirements Engineering (IREB)", "Backlog & Roadmap", "Stakeholder Management", "SAFe", "Scrum (PSM I)", "Kanban"],
+      es: ["Product Ownership", "Requirements Engineering (IREB)", "Backlog y roadmap", "Gestión de stakeholders", "SAFe", "Scrum (PSM I)", "Kanban"]
+    } },
+  { eye: { de: "Spezialwaffe", en: "Special", es: "Arma especial" }, title: { de: "Workflow-Automatisierung & KI", en: "Workflow Automation & AI", es: "Automatización de flujos e IA" },
+    art: { pal: "neon", motif: "nodes", mx: 400, my: 170, ms: 1, sunX: 400, city: true },
+    tags: {
+      de: ["n8n", "Power Automate", "Microsoft Copilot", "Agentenbasierte Systeme", "Prompt Engineering", "Enterprise-KI-Architektur", "Wissensmanagement"],
+      en: ["n8n", "Power Automate", "Microsoft Copilot", "Agent-based systems", "Prompt engineering", "Enterprise AI architecture", "Knowledge management"],
+      es: ["n8n", "Power Automate", "Microsoft Copilot", "Sistemas basados en agentes", "Prompt engineering", "Arquitectura de IA empresarial", "Gestión del conocimiento"]
+    } },
+  { eye: { de: "Nebenwaffe", en: "Sidearm", es: "Arma secundaria" }, title: { de: "Daten & Programmierung", en: "Data & Programming", es: "Datos y programación" },
+    art: { pal: "night", motif: "code", mx: 400, my: 170, ms: 1.1, stars: true, sunX: 400, sunR: 90, city: true },
+    tags: {
+      de: ["Python (PCEP)", "SQL / NoSQL", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Jupyter"],
+      en: ["Python (PCEP)", "SQL / NoSQL", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Jupyter"],
+      es: ["Python (PCEP)", "SQL / NoSQL", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Jupyter"]
+    } },
+  { eye: { de: "Ausrüstung", en: "Utility", es: "Utilidad" }, title: { de: "Enterprise-Systeme & Tools", en: "Enterprise Systems & Tools", es: "Sistemas y herramientas empresariales" },
+    art: { pal: "teal", motif: "chart", mx: 400, my: 170, ms: 1.1, sunX: 400, city: true },
+    tags: {
+      de: ["JIRA", "Confluence", "DOORS", "SharePoint", "Microsoft 365", "Entra ID", "SAP", "HubSpot", "MS Project", "Miro"],
+      en: ["JIRA", "Confluence", "DOORS", "SharePoint", "Microsoft 365", "Entra ID", "SAP", "HubSpot", "MS Project", "Miro"],
+      es: ["JIRA", "Confluence", "DOORS", "SharePoint", "Microsoft 365", "Entra ID", "SAP", "HubSpot", "MS Project", "Miro"]
+    } },
+  { eye: { de: "Schwere Waffe", en: "Heavy", es: "Arma pesada" }, title: { de: "Fachexpertise: Automotive & ADAS", en: "Domain Expertise: Automotive & ADAS", es: "Experiencia de dominio: automoción y ADAS" }, wide: true,
+    img: "img/v2/arsenal-domain.jpg", alt: { de: "Konzept-SUV in einem neonbeleuchteten Tunnel", en: "Concept SUV in a neon-lit tunnel", es: "SUV conceptual en un túnel iluminado con neón" },
+    tags: {
+      de: ["Computer Vision & Objekterkennung", "Automatisiertes Fahren L2–L3", "Funktionale Sicherheit nach ISO 26262", "SOTIF", "CAN / FlexRay / Ethernet", "V-Modell"],
+      en: ["Computer vision & object detection", "Automated driving L2–L3", "ISO 26262 functional safety", "SOTIF", "CAN / FlexRay / Ethernet", "V-model"],
+      es: ["Visión por computador y detección de objetos", "Conducción automatizada L2–L3", "Seguridad funcional ISO 26262", "SOTIF", "CAN / FlexRay / Ethernet", "Modelo en V"]
+    } }
 ];
 
 /* Self-assessment, 0–10. Adjust freely. */
 const STATS = [
-  ["Product Ownership", 9, "#e77fc0"], ["Stakeholder Management", 9, "#e77fc0"],
-  ["Agile Coaching / Scrum", 8.5, "#f39bb3"], ["Workflow Automation", 8, "#f39bb3"],
-  ["Automotive / ADAS", 8.5, "#f7c8a0"], ["Python & Data", 7, "#f7c8a0"],
-  ["English · C1", 8.5, "#d7f27a"], ["Spanish · A2", 3, "#d7f27a"]
+  { name: { de: "Product Ownership", en: "Product Ownership", es: "Product Ownership" }, v: 9, c: "#e77fc0" },
+  { name: { de: "Stakeholder-Management", en: "Stakeholder Management", es: "Gestión de stakeholders" }, v: 9, c: "#e77fc0" },
+  { name: { de: "Agile Coaching / Scrum", en: "Agile Coaching / Scrum", es: "Agile Coaching / Scrum" }, v: 8.5, c: "#f39bb3" },
+  { name: { de: "Workflow-Automatisierung", en: "Workflow Automation", es: "Automatización de flujos" }, v: 8, c: "#f39bb3" },
+  { name: { de: "Automotive / ADAS", en: "Automotive / ADAS", es: "Automoción / ADAS" }, v: 8.5, c: "#f7c8a0" },
+  { name: { de: "Python & Daten", en: "Python & Data", es: "Python y datos" }, v: 7, c: "#f7c8a0" },
+  { name: { de: "Englisch · C1", en: "English · C1", es: "Inglés · C1" }, v: 8.5, c: "#d7f27a" },
+  { name: { de: "Spanisch · A2", en: "Spanish · A2", es: "Español · A2" }, v: 3, c: "#d7f27a" }
 ];
 
 const QUESTS = [
-  { title: "Padel & Beach Volleyball", text: "Team ball sports since age 11. “Where’s the ball?” is a lifelong reflex, these days on a padel court or in the sand.", tag: "Active", art: { pal: "miami", motif: "racket", mx: 400, my: 230, ms: .9, sunX: 600, city: false } },
-  { title: "Scuba Diving", text: "Started during the pandemic and felt at home right away. Underwater he is calmer than on land, which still surprises him.", tag: "Since 2020", art: { pal: "ocean", motif: "diver", mx: 400, my: 230, ms: 1, sun: false, city: false } },
-  { title: "Cooking as a Souvenir", text: "Bringing places home: Chinese since Shanghai, Japanese since 2026, Colombian, and Moroccan, in a tajine carried back from Morocco.", tag: "Daily", art: { pal: "dusk", motif: "tajine", mx: 400, my: 250, ms: 1, sunX: 400, city: false } },
-  { title: "Kegelverein Crew", text: "Founding member and former board member of his bowling club. Leadership without a job title, organizing people because it is fun.", tag: "Founding member", art: { pal: "neon", motif: "pins", mx: 400, my: 250, ms: 1, sunX: 620, city: true } },
-  { title: "Basketball & Football", text: "Basketball from 11 to 18, football during the master’s. Noticed that pressing in football is the basketball trap, one to one.", tag: "Pattern recognition", art: { pal: "jade", motif: "ball", mx: 400, my: 230, ms: 1, sunX: 220, city: true } },
-  { title: "Spanish, Salsa & Bachata", text: "The most beautiful language, learned as a deliberate challenge. A2 for now, fuelled by salsa, bachata and reggaeton.", tag: "Learning", art: { pal: "miami", motif: "chat", mx: 400, my: 230, ms: 1, sunX: 400, city: true } }
+  { title: { de: "Padel & Beachvolleyball", en: "Padel & Beach Volleyball", es: "Pádel y vóley playa" },
+    text: { de: "Mannschafts-Ballsport seit dem 11. Lebensjahr. „Wo ist der Ball?“ ist ein lebenslanger Reflex – heute auf dem Padel-Court oder im Sand.", en: "Team ball sports since age 11. “Where’s the ball?” is a lifelong reflex, these days on a padel court or in the sand.", es: "Deportes de equipo con pelota desde los 11 años. «¿Dónde está la pelota?» es un reflejo de toda la vida, hoy en la pista de pádel o en la arena." },
+    tag: { de: "Aktiv", en: "Active", es: "Activo" },
+    art: { pal: "miami", motif: "racket", mx: 400, my: 230, ms: .9, sunX: 600, city: false } },
+  { title: { de: "Tauchen", en: "Scuba Diving", es: "Buceo" },
+    text: { de: "Begann während der Pandemie und fühlte sich sofort zu Hause. Unter Wasser ist er ruhiger als an Land – das überrascht ihn bis heute.", en: "Started during the pandemic and felt at home right away. Underwater he is calmer than on land, which still surprises him.", es: "Empezó durante la pandemia y se sintió como en casa desde el primer momento. Bajo el agua está más tranquilo que en tierra, algo que todavía le sorprende." },
+    tag: { de: "Seit 2020", en: "Since 2020", es: "Desde 2020" },
+    art: { pal: "ocean", motif: "diver", mx: 400, my: 230, ms: 1, sun: false, city: false } },
+  { title: { de: "Kochen als Souvenir", en: "Cooking as a Souvenir", es: "Cocinar como recuerdo" },
+    text: { de: "Orte mit nach Hause nehmen: chinesisch seit Shanghai, japanisch seit 2026, kolumbianisch und marokkanisch – im Tajine-Topf, den er aus Marokko mitgebracht hat.", en: "Bringing places home: Chinese since Shanghai, Japanese since 2026, Colombian, and Moroccan, in a tajine carried back from Morocco.", es: "Traerse los lugares a casa: cocina china desde Shanghái, japonesa desde 2026, colombiana y marroquí, en un tajín que trajo de Marruecos." },
+    tag: { de: "Täglich", en: "Daily", es: "A diario" },
+    art: { pal: "dusk", motif: "tajine", mx: 400, my: 250, ms: 1, sunX: 400, city: false } },
+  { title: { de: "Kegelverein-Crew", en: "Kegelverein Crew", es: "La peña de bolos" },
+    text: { de: "Gründungsmitglied und ehemaliges Vorstandsmitglied seines Kegelvereins. Führung ohne Titel – Menschen organisieren, weil es Spaß macht.", en: "Founding member and former board member of his bowling club. Leadership without a job title, organizing people because it is fun.", es: "Socio fundador y antiguo miembro de la junta de su club de bolos (Kegelverein). Liderazgo sin cargo formal: organizar a la gente porque es divertido." },
+    tag: { de: "Gründungsmitglied", en: "Founding member", es: "Socio fundador" },
+    art: { pal: "neon", motif: "pins", mx: 400, my: 250, ms: 1, sunX: 620, city: true } },
+  { title: { de: "Basketball & Fußball", en: "Basketball & Football", es: "Baloncesto y fútbol" },
+    text: { de: "Basketball von 11 bis 18, Fußball während des Masterstudiums. Erkannte, dass Pressing im Fußball eins zu eins der Trap im Basketball entspricht.", en: "Basketball from 11 to 18, football during the master’s. Noticed that pressing in football is the basketball trap, one to one.", es: "Baloncesto de los 11 a los 18 años, fútbol durante el máster. Se dio cuenta de que el pressing en el fútbol es exactamente la trampa (trap) del baloncesto." },
+    tag: { de: "Mustererkennung", en: "Pattern recognition", es: "Reconocimiento de patrones" },
+    art: { pal: "jade", motif: "ball", mx: 400, my: 230, ms: 1, sunX: 220, city: true } },
+  { title: { de: "Spanisch, Salsa & Bachata", en: "Spanish, Salsa & Bachata", es: "Español, salsa y bachata" },
+    text: { de: "Die schönste Sprache der Welt, bewusst als Herausforderung gewählt. Bisher A2, angetrieben von Salsa, Bachata und Reggaeton.", en: "The most beautiful language, learned as a deliberate challenge. A2 for now, fuelled by salsa, bachata and reggaeton.", es: "El idioma más bonito, aprendido como un reto deliberado. Por ahora A2, impulsado por la salsa, la bachata y el reggaetón." },
+    tag: { de: "Lernt gerade", en: "Learning", es: "Aprendiendo" },
+    art: { pal: "miami", motif: "chat", mx: 400, my: 230, ms: 1, sunX: 400, city: true } }
 ];
 
 const CONTINENTS = [
-  { name: "Europe", list: ["Germany", "Spain", "Portugal", "Italy", "Greece", "Malta", "France", "UK", "Ireland", "Austria", "Hungary", "Poland", "Czechia", "Slovakia", "Croatia", "Serbia", "Romania", "Turkey"] },
-  { name: "Asia", list: ["Japan", "South Korea", "China", "Hong Kong", "Vietnam", "Thailand", "Malaysia", "Philippines", "Israel"] },
-  { name: "Americas & Africa", list: ["Colombia (4 months)", "Mexico", "Peru", "Cuba", "Guatemala", "Jamaica", "Puerto Rico", "Morocco"] }
+  { name: { de: "Europa", en: "Europe", es: "Europa" },
+    list: {
+      de: ["Deutschland", "Spanien", "Portugal", "Italien", "Griechenland", "Malta", "Frankreich", "Vereinigtes Königreich", "Irland", "Österreich", "Ungarn", "Polen", "Tschechien", "Slowakei", "Kroatien", "Serbien", "Rumänien", "Türkei"],
+      en: ["Germany", "Spain", "Portugal", "Italy", "Greece", "Malta", "France", "UK", "Ireland", "Austria", "Hungary", "Poland", "Czechia", "Slovakia", "Croatia", "Serbia", "Romania", "Turkey"],
+      es: ["Alemania", "España", "Portugal", "Italia", "Grecia", "Malta", "Francia", "Reino Unido", "Irlanda", "Austria", "Hungría", "Polonia", "Chequia", "Eslovaquia", "Croacia", "Serbia", "Rumanía", "Turquía"]
+    } },
+  { name: { de: "Asien", en: "Asia", es: "Asia" },
+    list: {
+      de: ["Japan", "Südkorea", "China", "Hongkong", "Vietnam", "Thailand", "Malaysia", "Philippinen", "Israel"],
+      en: ["Japan", "South Korea", "China", "Hong Kong", "Vietnam", "Thailand", "Malaysia", "Philippines", "Israel"],
+      es: ["Japón", "Corea del Sur", "China", "Hong Kong", "Vietnam", "Tailandia", "Malasia", "Filipinas", "Israel"]
+    } },
+  { name: { de: "Amerika & Afrika", en: "Americas & Africa", es: "América y África" },
+    list: {
+      de: ["Kolumbien (4 Monate)", "Mexiko", "Peru", "Kuba", "Guatemala", "Jamaika", "Puerto Rico", "Marokko"],
+      en: ["Colombia (4 months)", "Mexico", "Peru", "Cuba", "Guatemala", "Jamaica", "Puerto Rico", "Morocco"],
+      es: ["Colombia (4 meses)", "México", "Perú", "Cuba", "Guatemala", "Jamaica", "Puerto Rico", "Marruecos"]
+    } }
 ];
 
 const TRAINING = [
-  { title: "M.Sc. Mechatronics", text: "Hochschule Bochum. Thesis: parking-maneuver detection from CAN/FlexRay data, written alongside BMW in Shanghai.", tag: "2015 – 2018", art: { pal: "dusk", motif: "grad", mx: 400, my: 250, ms: .9, sunX: 600 } },
-  { title: "B.Eng. Mechatronics & IT", text: "Hochschule Bochum, cooperative degree with Kiekert. Thesis: pneumatic actuation for durability test rigs.", tag: "2011 – 2015", art: { pal: "miami", motif: "grad", mx: 400, my: 250, ms: .9, sunX: 200 } },
-  { title: "Industrial Mechanic", text: "Vocational qualification in maintenance, Kiekert AG / IHK Düsseldorf. Where the hands-on mindset comes from.", tag: "2011 – 2013", art: { pal: "jade", motif: "gear", mx: 400, my: 250, ms: .8, sunX: 600 } },
-  { title: "Data Science & IT PM", text: "cimdata Bildungsakademie: Python, AI, SQL/NoSQL and Scrum.", tag: "2024 – 2025", art: { pal: "night", motif: "code", mx: 400, my: 250, ms: .9, stars: true, sunX: 200, sunR: 80 } },
-  { title: "Professional Scrum Master I", text: "Scrum.org certification.", tag: "2024", art: { pal: "neon", motif: "cert", mx: 400, my: 250, ms: .9, sunX: 620 } },
-  { title: "ISO 26262 Functional Safety", text: "TÜV SÜD Akademie.", tag: "2024", art: { pal: "teal", motif: "cert", mx: 400, my: 250, ms: .9, sunX: 200 } }
+  { title: { de: "M.Sc. Mechatronik", en: "M.Sc. Mechatronics", es: "Máster en Mecatrónica" },
+    text: { de: "Hochschule Bochum. Thesis: Parkmanöver-Erkennung aus CAN-/FlexRay-Daten, verfasst parallel zur Zeit bei BMW in Shanghai.", en: "Hochschule Bochum. Thesis: parking-maneuver detection from CAN/FlexRay data, written alongside BMW in Shanghai.", es: "Hochschule Bochum. Trabajo fin de máster: detección de maniobras de aparcamiento a partir de datos CAN/FlexRay, escrito en paralelo a su etapa en BMW en Shanghái." },
+    tag: "2015 – 2018", art: { pal: "dusk", motif: "grad", mx: 400, my: 250, ms: .9, sunX: 600 } },
+  { title: { de: "B.Eng. Mechatronik & IT", en: "B.Eng. Mechatronics & IT", es: "Grado en Mecatrónica y TI" },
+    text: { de: "Hochschule Bochum, duales Studium mit Kiekert. Thesis: pneumatische Aktuierung für Dauerlauf-Prüfstände.", en: "Hochschule Bochum, cooperative degree with Kiekert. Thesis: pneumatic actuation for durability test rigs.", es: "Hochschule Bochum, grado dual con Kiekert. Trabajo fin de grado: accionamiento neumático para bancos de pruebas de durabilidad." },
+    tag: "2011 – 2015", art: { pal: "miami", motif: "grad", mx: 400, my: 250, ms: .9, sunX: 200 } },
+  { title: { de: "Industriemechaniker", en: "Industrial Mechanic", es: "Mecánico industrial" },
+    text: { de: "Berufsausbildung Fachrichtung Instandhaltung, Kiekert AG / IHK Düsseldorf. Hier kommt die Hands-on-Mentalität her.", en: "Vocational qualification in maintenance, Kiekert AG / IHK Düsseldorf. Where the hands-on mindset comes from.", es: "Formación profesional en mantenimiento, Kiekert AG / IHK Düsseldorf. De aquí viene su mentalidad práctica." },
+    tag: "2011 – 2013", art: { pal: "jade", motif: "gear", mx: 400, my: 250, ms: .8, sunX: 600 } },
+  { title: { de: "Data Science & IT-Projektmanagement", en: "Data Science & IT PM", es: "Data Science y gestión de proyectos TI" },
+    text: { de: "cimdata Bildungsakademie: Python, KI, SQL/NoSQL und Scrum.", en: "cimdata Bildungsakademie: Python, AI, SQL/NoSQL and Scrum.", es: "cimdata Bildungsakademie: Python, IA, SQL/NoSQL y Scrum." },
+    tag: "2024 – 2025", art: { pal: "night", motif: "code", mx: 400, my: 250, ms: .9, stars: true, sunX: 200, sunR: 80 } },
+  { title: { de: "Professional Scrum Master I", en: "Professional Scrum Master I", es: "Professional Scrum Master I" },
+    text: { de: "Zertifizierung von Scrum.org.", en: "Scrum.org certification.", es: "Certificación de Scrum.org." },
+    tag: "2024", art: { pal: "neon", motif: "cert", mx: 400, my: 250, ms: .9, sunX: 620 } },
+  { title: { de: "ISO 26262 Funktionale Sicherheit", en: "ISO 26262 Functional Safety", es: "ISO 26262 Seguridad funcional" },
+    text: { de: "TÜV SÜD Akademie.", en: "TÜV SÜD Akademie.", es: "TÜV SÜD Akademie." },
+    tag: "2024", art: { pal: "teal", motif: "cert", mx: 400, my: 250, ms: .9, sunX: 200 } }
 ];
 
 /* ---------- SVG key-art generator (for sections without artwork) ---------- */
@@ -195,7 +437,6 @@ function palm(x, y, h, lean, col) {
 }
 
 const MOTIF = {
-  car: `<path d="M-150 30 L-142 2 Q-125 -10 -92 -15 L-60 -42 Q-40 -56 0 -56 L48 -56 Q74 -56 96 -32 L122 -14 Q150 -9 155 10 L155 30 Z"/><circle cx="-88" cy="32" r="22"/><circle cx="100" cy="32" r="22"/><path d="M-52 -18 L-30 -44 L40 -44 L70 -18 Z"/>`,
   gear: `<circle cx="0" cy="0" r="62" stroke-width="22" stroke-dasharray="15 13.5"/><circle cx="0" cy="0" r="46"/><circle cx="0" cy="0" r="16"/><circle cx="105" cy="78" r="34" stroke-width="14" stroke-dasharray="10 9.6" stroke="#ff8fc8"/><circle cx="105" cy="78" r="10" stroke="#ff8fc8"/>`,
   nodes: `<rect x="-200" y="-30" width="76" height="56" rx="14"/><rect x="-60" y="-90" width="76" height="56" rx="14"/><rect x="-60" y="40" width="76" height="56" rx="14"/><rect x="90" y="-30" width="76" height="56" rx="14" stroke="#ff8fc8"/><path d="M-124 -2 C-90 -2 -95 -62 -60 -62 M-124 -2 C-90 -2 -95 68 -60 68 M16 -62 C55 -62 50 -2 90 -2 M16 68 C55 68 50 -2 90 -2"/><path d="M128 -60 L134 -44 L150 -38 L134 -32 L128 -16 L122 -32 L106 -38 L122 -44 Z" fill="#ff8fc8" stroke="#ff8fc8"/><circle cx="-162" cy="-2" r="8"/><path d="M-36 -62 L-8 -62 M-36 68 L-8 68"/>`,
   racket: `<ellipse cx="-20" cy="-40" rx="58" ry="70" transform="rotate(-20 -20 -40)"/><path d="M5 22 L40 110" stroke-width="14"/><circle cx="-30" cy="-60" r="4"/><circle cx="-6" cy="-52" r="4"/><circle cx="-40" cy="-30" r="4"/><circle cx="-16" cy="-22" r="4"/><circle cx="-26" cy="6" r="4"/><circle cx="100" cy="-110" r="16" stroke="#d7f27a"/><path d="M60 -80 Q80 -100 86 -104" stroke-dasharray="6 8" opacity=".6"/>`,
@@ -204,12 +445,12 @@ const MOTIF = {
   pins: `<path d="M-60 80 Q-80 30 -66 0 Q-56 -20 -66 -40 Q-70 -70 -55 -70 Q-40 -70 -44 -40 Q-54 -20 -44 0 Q-30 30 -50 80 Z"/><path d="M0 80 Q-20 30 -6 0 Q4 -20 -6 -40 Q-10 -70 5 -70 Q20 -70 16 -40 Q6 -20 16 0 Q30 30 10 80 Z"/><path d="M60 80 Q40 30 54 0 Q64 -20 54 -40 Q50 -70 65 -70 Q80 -70 76 -40 Q66 -20 76 0 Q90 30 70 80 Z"/><path d="M-64 -30 L-46 -30 M-4 -30 L14 -30 M56 -30 L74 -30" stroke="#ff8fc8"/><circle cx="-150" cy="55" r="28" stroke="#ff8fc8"/><path d="M-250 55 L-190 55 M-240 40 L-200 40" opacity=".5"/>`,
   ball: `<circle cx="0" cy="0" r="66"/><path d="M-66 0 L66 0 M0 -66 L0 66 M-46 -47 Q-10 0 -46 47 M46 -47 Q10 0 46 47"/><path d="M90 -60 Q130 -110 170 -60" stroke-dasharray="8 8" opacity=".6"/>`,
   chat: `<path d="M-150 -70 h160 a20 20 0 0 1 20 20 v60 a20 20 0 0 1 -20 20 h-110 l-30 26 v-26 h-20 a20 20 0 0 1 -20 -20 v-60 a20 20 0 0 1 20 -20 z"/><text x="-120" y="-12" fill="#fff4cc" stroke="none" font-family="Sofia Sans Extra Condensed, sans-serif" font-weight="800" font-size="48">¡HOLA!</text><path d="M60 0 h100 a18 18 0 0 1 18 18 v44 a18 18 0 0 1 -18 18 h-10 v22 l-26 -22 h-64 a18 18 0 0 1 -18 -18 v-44 a18 18 0 0 1 18 -18 z" stroke="#ff8fc8"/><path d="M84 40 h70" stroke="#ff8fc8"/>`,
-  plane: `<path d="M-120 20 L120 -10 Q150 -14 150 0 Q150 12 120 12 L-110 40 Z"/><path d="M0 4 L-60 70 L-30 70 L50 6 M10 -2 L-40 -60 L-14 -60 L56 -6 M-110 26 L-140 -10 L-122 -10 L-90 22"/><path d="M-300 120 Q-160 30 -130 40" stroke-dasharray="10 10" opacity=".6"/>`,
   grad: `<path d="M-110 -30 L0 -80 L110 -30 L0 20 Z"/><path d="M-60 -6 L-60 50 Q0 85 60 50 L60 -6"/><path d="M100 -26 L100 40"/><circle cx="100" cy="48" r="7" fill="#ff8fc8" stroke="#ff8fc8"/>`,
   cert: `<path d="M0 -110 L80 -80 L80 0 Q80 70 0 110 Q-80 70 -80 0 L-80 -80 Z"/><path d="M-36 0 L-8 28 L42 -30" stroke="#d7f27a" stroke-width="8"/>`,
   code: `<path d="M-60 -60 L-130 0 L-60 60 M60 -60 L130 0 L60 60" stroke-width="8"/><path d="M24 -90 L-24 90" stroke="#ff8fc8" stroke-width="8"/>`,
   chart: `<path d="M-150 90 L150 90 M-150 90 L-150 -110"/><rect x="-120" y="20" width="40" height="70"/><rect x="-60" y="-20" width="40" height="110"/><rect x="0" y="-60" width="40" height="150"/><rect x="60" y="-30" width="40" height="120"/><path d="M-100 0 L-40 -40 L20 -90 L80 -60 L140 -110" stroke="#ff8fc8"/>`,
-  people: `<circle cx="0" cy="-60" r="30"/><path d="M-60 40 Q-60 -20 0 -20 Q60 -20 60 40"/><circle cx="-110" cy="-30" r="24" opacity=".75"/><path d="M-160 50 Q-160 0 -110 0 Q-70 0 -64 20" opacity=".75"/><circle cx="110" cy="-30" r="24" opacity=".75"/><path d="M160 50 Q160 0 110 0 Q70 0 64 20" opacity=".75"/><path d="M-30 -130 L0 -150 L30 -130" stroke="#ff8fc8"/>`
+  people: `<circle cx="0" cy="-60" r="30"/><path d="M-60 40 Q-60 -20 0 -20 Q60 -20 60 40"/><circle cx="-110" cy="-30" r="24" opacity=".75"/><path d="M-160 50 Q-160 0 -110 0 Q-70 0 -64 20" opacity=".75"/><circle cx="110" cy="-30" r="24" opacity=".75"/><path d="M160 50 Q160 0 110 0 Q70 0 64 20" opacity=".75"/><path d="M-30 -130 L0 -150 L30 -130" stroke="#ff8fc8"/>`,
+  plane: `<path d="M-120 20 L120 -10 Q150 -14 150 0 Q150 12 120 12 L-110 40 Z"/><path d="M0 4 L-60 70 L-30 70 L50 6 M10 -2 L-40 -60 L-14 -60 L56 -6 M-110 26 L-140 -10 L-122 -10 L-90 22"/><path d="M-300 120 Q-160 30 -130 40" stroke-dasharray="10 10" opacity=".6"/>`
 };
 
 function scene(o = {}) {
@@ -259,112 +500,156 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const smooth = t => t * t * (3 - 2 * t);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- render sections ---------- */
-$("#featured").innerHTML = FEATURED.map((f, i) => `
-  <button class="tcard reveal" data-m="${f.m}" style="transition-delay:${i * .08}s" aria-label="${esc(f.eye)}: ${esc(f.title.replace("\n", " "))}, open mission briefing">
-    <img src="${f.img}" alt="${esc(f.alt)}" loading="lazy">
-    <span class="tcard__play" aria-hidden="true"></span>
-    <p class="eyebrow">${esc(f.eye)}</p><h3>${nl(f.title)}</h3>
-  </button>`).join("");
+/* ---------- reveal bookkeeping ----------
+   First paint: sections fade in via IntersectionObserver as the user
+   scrolls to them. On a language switch we rebuild the same containers
+   in place, so new nodes should appear instantly, with no replay and
+   no transition flicker. */
+const io = new IntersectionObserver(entries => entries.forEach(en => {
+  if (!en.isIntersecting) return;
+  en.target.classList.add("in");
+  en.target.querySelectorAll(".stat__fill").forEach(f => f.style.width = f.dataset.v + "%");
+  io.unobserve(en.target);
+}), { threshold: 0.15 });
 
-$("#editionPalms").innerHTML =
-  palm(60, 560, 380, 40, "#2a1858") + palm(170, 580, 300, -30, "#341d66") +
-  palm(1010, 560, 400, -50, "#2a1858") + palm(900, 590, 280, 26, "#341d66");
+function mount(container, html, instant) {
+  container.innerHTML = html;
+  if (instant || reduce) {
+    container.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+    container.querySelectorAll(".stat__fill").forEach(f => f.style.width = f.dataset.v + "%");
+  } else {
+    container.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  }
+}
+function withoutTransitions(fn) {
+  document.body.classList.add("no-anim");
+  fn();
+  document.body.offsetHeight; // reflow
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove("no-anim")));
+}
+
+/* ---------- render sections ---------- */
+function renderFeatured(instant) {
+  mount($("#featured"), FEATURED.map((f, i) => `
+    <button class="tcard reveal" data-m="${f.m}" style="transition-delay:${i * .08}s" aria-label="${esc(tr(f.eye))}: ${esc(tr(f.title).replace("\n", " "))}, ${esc(window.BM_I18N.t("mission.ariaOpen"))}">
+      <img src="${f.img}" alt="${esc(tr(f.alt))}" loading="lazy">
+      <span class="tcard__play" aria-hidden="true"></span>
+      <p class="eyebrow">${esc(tr(f.eye))}</p><h3>${nl(tr(f.title))}</h3>
+    </button>`).join(""), instant);
+}
 
 function missionMedia(m) {
   if (m.img) return `<div class="banner__media ${m.grade ? "banner__grade" : ""}" style="--pos:${m.pos || "50% 50%"};--pos-m:${m.posM || m.pos || "50% 50%"}"><img src="${m.img}" alt="" loading="lazy"></div>`;
   return `<div class="banner__media">${scene(m.art)}</div>`;
 }
-$("#missionList").innerHTML = MISSIONS.map((m, i) => `
-  <article class="banner reveal ${m.left ? "banner--left" : ""} ${m.windowImg ? "banner--window" : ""}">
-    ${missionMedia(m)}
-    ${m.windowImg ? `<div class="window ${m.left ? "" : "window--left"}" aria-hidden="true"><div class="window__bar"><i></i><i></i><i></i>${esc(m.windowTitle)}</div><img src="${m.windowImg}" alt="" loading="lazy"></div>` : ""}
-    <div class="banner__txt">
-      <p class="eyebrow">Mission ${m.no} · ${m.dates}</p>
-      <h3 class="title">${esc(m.title)}</h3>
-      <p class="banner__company">${esc(m.sub)}</p>
-      <p class="banner__desc">${esc(m.desc)}</p>
-      <p class="banner__reward"><b>REWARD</b>${esc(m.reward)}</p>
-      <button class="pill pill--${m.pill}" data-m="${i}">Mission Briefing <i>→</i></button>
-    </div>
-  </article>`).join("");
+function renderMissions(instant) {
+  const T = window.BM_I18N.t;
+  mount($("#missionList"), MISSIONS.map((m, i) => `
+    <article class="banner reveal ${m.left ? "banner--left" : ""} ${m.windowImg ? "banner--window" : ""}">
+      ${missionMedia(m)}
+      ${m.windowImg ? `<div class="window ${m.left ? "" : "window--left"}" aria-hidden="true"><div class="window__bar"><i></i><i></i><i></i>${esc(m.windowTitle)}</div><img src="${m.windowImg}" alt="" loading="lazy"></div>` : ""}
+      <div class="banner__txt">
+        <p class="eyebrow">${T("mission.label")} ${m.no} · ${m.dates}</p>
+        <h3 class="title">${esc(tr(m.title))}</h3>
+        <p class="banner__company">${esc(tr(m.sub))}</p>
+        <p class="banner__desc">${esc(tr(m.desc))}</p>
+        <p class="banner__reward"><b>${T("mission.reward")}</b>${esc(tr(m.reward))}</p>
+        <button class="pill pill--${m.pill}" data-m="${i}">${T("mission.briefing")} <i>→</i></button>
+      </div>
+    </article>`).join(""), instant);
+}
 
-$("#arsenalGrid").innerHTML = ARSENAL.map(a => `
-  <article class="acard reveal ${a.wide ? "acard--wide" : ""}">
-    ${a.img ? `<img src="${a.img}" alt="${esc(a.alt)}" loading="lazy">` : scene(a.art)}
-    <p class="eyebrow">${a.eye}</p>
-    <h3 class="title">${esc(a.title)}</h3>
-    <div class="chips">${a.tags.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
-  </article>`).join("");
+function renderArsenal(instant) {
+  mount($("#arsenalGrid"), ARSENAL.map(a => `
+    <article class="acard reveal ${a.wide ? "acard--wide" : ""}">
+      ${a.img ? `<img src="${a.img}" alt="${esc(tr(a.alt))}" loading="lazy">` : scene(a.art)}
+      <p class="eyebrow">${esc(tr(a.eye))}</p>
+      <h3 class="title">${esc(tr(a.title))}</h3>
+      <div class="chips">${tr(a.tags).map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+    </article>`).join(""), instant);
+}
 
-$("#stats").innerHTML = STATS.map(([n, v, c]) => `
-  <div class="stat"><div class="stat__row"><span>${esc(n)}</span><em>${v}/10</em></div>
-  <div class="stat__bar"><div class="stat__fill" data-v="${v * 10}" style="--c:${c}"></div></div></div>`).join("");
+function renderStats(instant) {
+  mount($("#stats"), STATS.map(s => `
+    <div class="stat"><div class="stat__row"><span>${esc(tr(s.name))}</span><em>${s.v}/10</em></div>
+    <div class="stat__bar"><div class="stat__fill" data-v="${s.v * 10}" style="--c:${s.c}"></div></div></div>`).join(""), instant);
+}
 
-const card = q => `
+function card(q) {
+  return `
   <article class="ncard reveal">
     <div class="ncard__art">${q.img ? `<img src="${q.img}" alt="" loading="lazy">` : scene(q.art)}</div>
-    <div class="ncard__body"><h3>${esc(q.title)}</h3><p>${esc(q.text)}</p><small>${esc(q.tag)}</small></div>
+    <div class="ncard__body"><h3>${esc(tr(q.title))}</h3><p>${esc(tr(q.text))}</p><small>${esc(tr(q.tag))}</small></div>
   </article>`;
-$("#quests").innerHTML = QUESTS.map(card).join("");
-$("#trainingList").innerHTML = TRAINING.map(card).join("");
+}
+function renderQuests(instant) { mount($("#quests"), QUESTS.map(card).join(""), instant); }
+function renderTraining(instant) { mount($("#trainingList"), TRAINING.map(card).join(""), instant); }
 
-$("#travelBanner").innerHTML = `
-  <div class="banner__media">${scene({ pal: "miami", motif: "plane", mx: 300, my: 190, ms: 1.2, sunX: 300, sunR: 150, city: true })}</div>
-  <div class="banner__txt">
-    <p class="eyebrow">People &amp; Places</p>
-    <h3 class="title">Only on Planet Earth</h3>
-    <div class="travel__stats"><div><b>35</b><span>Countries</span></div><div><b>109</b><span>Places</span></div></div>
-    <p class="banner__desc">It started in Shanghai: realizing you can make it on the other side of the world. Since then, the limits keep moving, from Kyoto hostels to four months in Colombia.</p>
-    <span class="pill pill--lilac" aria-disabled="true">Travel log · coming soon</span>
-  </div>`;
-$("#continents").innerHTML = CONTINENTS.map(c => `
-  <div class="cont"><h4>${c.name}<em>${c.list.length}</em></h4><p>${c.list.join(" · ")}</p></div>`).join("");
+function renderTravel(instant) {
+  const T = window.BM_I18N.t;
+  mount($("#travelBanner"), `
+    <div class="banner__media">${scene({ pal: "miami", motif: "plane", mx: 300, my: 190, ms: 1.2, sunX: 300, sunR: 150, city: true })}</div>
+    <div class="banner__txt">
+      <p class="eyebrow">${T("travel.eyebrow")}</p>
+      <h3 class="title">${T("travel.title")}</h3>
+      <div class="travel__stats"><div><b>35</b><span>${T("travel.countries")}</span></div><div><b>109</b><span>${T("travel.places")}</span></div></div>
+      <p class="banner__desc">${T("travel.desc")}</p>
+      <span class="pill pill--lilac" aria-disabled="true">${T("travel.comingSoon")}</span>
+    </div>`, instant);
+  mount($("#continents"), CONTINENTS.map(c => `
+    <div class="cont"><h4>${esc(tr(c.name))}<em>${tr(c.list).length}</em></h4><p>${tr(c.list).map(esc).join(" · ")}</p></div>`).join(""), true);
+}
 
 /* ---------- mission briefing dialog with intel gallery ---------- */
 const brief = $("#brief"), briefArt = $("#briefArt");
-let current = null;
+let currentMission = null, currentIndex = null;
 function showArt(m) {
   briefArt.classList.remove("is-intel");
   briefArt.innerHTML = m.img ? `<img src="${m.img}" alt="">` : scene(m.art);
 }
 function showIntel(item) {
   briefArt.classList.add("is-intel");
-  briefArt.innerHTML = `<img src="${item.src}" alt="${esc(item.cap)}"><figcaption>${esc(item.cap)}</figcaption>`;
+  briefArt.innerHTML = `<img src="${item.src}" alt="${esc(tr(item.cap))}"><figcaption>${esc(tr(item.cap))}</figcaption>`;
 }
 function openBrief(i) {
-  const m = MISSIONS[i]; current = m;
+  const T = window.BM_I18N.t;
+  const m = MISSIONS[i]; currentMission = m; currentIndex = i;
   showArt(m);
-  $("#briefEye").textContent = `Mission ${m.no} · ${m.dates} · ${m.place}`;
-  $("#briefTitle").textContent = m.title;
-  $("#briefSub").textContent = m.sub;
-  $("#briefList").innerHTML = m.bullets.map(t => `<li>${esc(t)}</li>`).join("");
+  $("#briefEye").textContent = `${T("mission.label")} ${m.no} · ${m.dates} · ${tr(m.place)}`;
+  $("#briefTitle").textContent = tr(m.title);
+  $("#briefSub").textContent = tr(m.sub);
+  $("#briefList").innerHTML = tr(m.bullets).map(t => `<li>${esc(t)}</li>`).join("");
   $("#briefChips").innerHTML = m.stack.map(t => `<span class="chip">${esc(t)}</span>`).join("");
   $("#briefIntel").innerHTML = m.intel.length ? `
-    <h4>Intel</h4><p>Reference material from the field. Select an item to enlarge it, select it again to go back.</p>
+    <h4>${T("brief.intel")}</h4><p>${T("brief.intelHint")}</p>
     <div class="intel__grid">${m.intel.map((it, k) => `
-      <button class="intel__item" data-k="${k}" aria-pressed="false"><img src="${it.src}" alt="" loading="lazy"><span>${esc(it.cap)}</span></button>`).join("")}
+      <button class="intel__item" data-k="${k}" aria-pressed="false"><img src="${it.src}" alt="" loading="lazy"><span>${esc(tr(it.cap))}</span></button>`).join("")}
     </div>` : "";
-  brief.showModal();
+  if (!brief.open) brief.showModal();
   brief.scrollTop = 0;
 }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-m]");
   if (b) { openBrief(+b.dataset.m); return; }
   const it = e.target.closest(".intel__item");
-  if (it && current) {
+  if (it && currentMission) {
     const pressed = it.getAttribute("aria-pressed") === "true";
     brief.querySelectorAll(".intel__item").forEach(x => x.setAttribute("aria-pressed", "false"));
-    if (pressed) showArt(current);
-    else { it.setAttribute("aria-pressed", "true"); showIntel(current.intel[+it.dataset.k]); brief.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); }
+    if (pressed) showArt(currentMission);
+    else { it.setAttribute("aria-pressed", "true"); showIntel(currentMission.intel[+it.dataset.k]); brief.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); }
   }
 });
 $(".brief__x").addEventListener("click", () => brief.close());
 brief.addEventListener("click", e => { if (e.target === brief) brief.close(); });
+brief.addEventListener("close", () => { currentMission = null; currentIndex = null; });
 
 /* ---------- menu ---------- */
 const burger = $(".nav__burger");
-const setMenu = open => { document.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open); };
+const setMenu = open => {
+  document.body.classList.toggle("menu-open", open);
+  burger.setAttribute("aria-expanded", open);
+  burger.setAttribute("aria-label", window.BM_I18N.t(open ? "nav.menuClose" : "nav.menuOpen"));
+};
 burger.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
 document.querySelectorAll(".menu a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
@@ -448,11 +733,21 @@ addEventListener("scroll", request, { passive: true });
 addEventListener("resize", () => { measure(); syncShardImage(); request(); });
 measure(); frame();
 
-/* ---------- reveal + stat bars ---------- */
-const io = new IntersectionObserver(entries => entries.forEach(en => {
-  if (!en.isIntersecting) return;
-  en.target.classList.add("in");
-  en.target.querySelectorAll(".stat__fill").forEach(f => f.style.width = f.dataset.v + "%");
-  io.unobserve(en.target);
-}), { threshold: 0.15 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+/* ---------- initial render + language-change re-render ---------- */
+function renderAll(instant) {
+  renderFeatured(instant);
+  renderMissions(instant);
+  renderArsenal(instant);
+  renderStats(instant);
+  renderQuests(instant);
+  renderTraining(instant);
+  renderTravel(instant);
+}
+renderAll(false);
+
+window.addEventListener("bm:langchange", () => {
+  withoutTransitions(() => {
+    renderAll(true);
+    if (currentIndex !== null && brief.open) openBrief(currentIndex);
+  });
+});
