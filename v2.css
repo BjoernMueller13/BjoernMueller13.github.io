@@ -46,6 +46,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 img, svg { display: block; max-width: 100%; }
 :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: 6px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* visible only once a keyboard user tabs to it */
+.skip-link {
+  position: absolute; top: -60px; left: 12px; z-index: 200;
+  background: var(--lime); color: var(--lime-ink);
+  padding: 12px 20px; border-radius: 999px;
+  font-family: var(--body); font-weight: 600; font-size: 14px;
+  transition: top .2s var(--ease);
+}
+.skip-link:focus { top: 12px; }
+
+/* shown only when JavaScript doesn't run, so this short summary replaces
+   the JS-rendered page instead of leaving visitors with an empty shell */
+.noscript__box { padding: 80px 0 60px; }
+.noscript__box .eyebrow { font-size: 16px; }
 /* toggled briefly during a language-switch re-render so new content
    appears instantly instead of replaying scroll-reveal / fill animations */
 .no-anim, .no-anim * { transition: none !important; animation: none !important; }
@@ -95,22 +110,21 @@ a.textlink:hover i { transform: translateX(3px); }
 
 /* ---------- top strip + nav ---------- */
 .topstrip {
-  position: relative; display: grid; place-items: center; height: 40px; overflow: hidden;
-  background: linear-gradient(90deg, #5b4a9b, #a98ad8 50%, #6956a8);
+  position: relative; display: grid; place-items: center; height: 60px; overflow: hidden; color: #5c4068;
+  background: linear-gradient(90deg, #a47fcb 0%, #d890b6 24%, #f0a9a6 40%, #ffc3a0 50%, #f0a9a6 60%, #d890b6 76%, #a47fcb 100%);
 }
-.topstrip__palms {
-  position: absolute; inset: 0; opacity: .5;
-  background:
-    radial-gradient(ellipse 60px 26px at 4% 0%, #2a1f55 60%, transparent 62%),
-    radial-gradient(ellipse 80px 30px at 12% -10%, #2a1f55 60%, transparent 62%),
-    radial-gradient(ellipse 70px 28px at 88% 0%, #2a1f55 60%, transparent 62%),
-    radial-gradient(ellipse 90px 30px at 97% -10%, #2a1f55 60%, transparent 62%);
-}
+.topstrip__palms { position: absolute; inset: 0; pointer-events: none; }
+.topstrip__palms svg { position: absolute; top: 0; height: 100%; width: clamp(64px, 28vw, 600px); opacity: .92; }
+.topstrip__palms svg:first-child { left: 0; }
+.topstrip__palms svg:last-child { right: 0; transform: scaleX(-1); }
 .topstrip__text {
-  position: relative; font-family: var(--body); font-weight: 600; font-size: 11px;
-  letter-spacing: .3em; text-transform: uppercase; color: #2a1f55;
+  position: relative; display: inline-flex; align-items: center; gap: 30px;
+  font-family: var(--body); font-weight: 600; font-size: 12px;
+  letter-spacing: .3em; text-transform: uppercase; color: #45284f;
 }
-
+.topstrip__bird { width: 46px; height: auto; fill: #5c4068; flex: none; }
+@media (max-width: 520px) { .topstrip { height: 44px; } .topstrip__bird { display: none; } .topstrip__text { font-size: 11px; } }
+/* nav */
 .nav {
   position: sticky; top: 0; z-index: 50;
   display: flex; justify-content: space-between; align-items: center;
@@ -120,15 +134,17 @@ a.textlink:hover i { transform: translateX(3px); }
 .nav.is-scrolled { background: rgba(12, 13, 27, .72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .nav__mark img { height: 26px; width: auto; }
 .nav__right { display: flex; align-items: center; gap: 18px; }
-.nav__burger { width: 30px; height: 22px; position: relative; z-index: 60; }
+/* 32px tall (was 22px): WCAG 2.5.8 wants at least 24px, this clears it with
+   comfortable room instead of sitting exactly on the minimum. */
+.nav__burger { width: 32px; height: 32px; position: relative; z-index: 60; }
 .nav__burger span {
-  position: absolute; left: 3px; right: 3px; height: 4px; border-radius: 2px; background: #fff;
+  position: absolute; left: 4px; right: 4px; height: 4px; border-radius: 2px; background: #fff;
   transition: transform .35s cubic-bezier(.7, 0, .2, 1), top .35s;
 }
-.nav__burger span:first-child { top: 4px; }
-.nav__burger span:last-child { top: 13px; }
-.menu-open .nav__burger span:first-child { top: 9px; transform: rotate(45deg); }
-.menu-open .nav__burger span:last-child { top: 9px; transform: rotate(-45deg); }
+.nav__burger span:first-child { top: 9px; }
+.nav__burger span:last-child { top: 19px; }
+.menu-open .nav__burger span:first-child { top: 14px; transform: rotate(45deg); }
+.menu-open .nav__burger span:last-child { top: 14px; transform: rotate(-45deg); }
 
 .menu {
   position: fixed; inset: 0; z-index: 45; display: grid; place-items: center;
@@ -417,6 +433,7 @@ a.textlink:hover i { transform: translateX(3px); }
 .foot__links { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; font-size: 12.5px; color: var(--muted); }
 .foot__links a:hover { color: var(--pink); }
 .foot__credit { font-size: 11.5px; color: var(--muted); margin-top: -20px; }
+.foot__premise { margin-top: -28px; max-width: 420px; line-height: 1.5; }
 .rating { display: flex; gap: 14px; align-items: stretch; text-align: left; max-width: 360px; }
 .rating__box { border: 2px solid #fff; background: #fff; color: #000; width: 52px; display: grid; place-items: center; padding: 4px 2px; }
 .rating__box b { font-family: var(--display); font-weight: 800; font-size: 40px; line-height: .9; }
@@ -467,6 +484,14 @@ a.textlink:hover i { transform: translateX(3px); }
    UI language (and, if the radio is already playing, crossfades to
    that station's track). Built by i18n.js, styled here. */
 .radio { position: fixed; left: 18px; bottom: 18px; z-index: 55; font-family: var(--body); }
+
+/* first-visit-only nudge that this is interactive; dismissed for good on
+   the first click (see i18n.js), never replayed via a localStorage flag */
+.radio--hint .radio__dial { animation: radioHint 1.6s ease-in-out 3; }
+@keyframes radioHint {
+  0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, .45); }
+  50% { box-shadow: 0 10px 30px rgba(0, 0, 0, .45), 0 0 0 7px rgba(254, 214, 227, .22); }
+}
 
 .radio__dial {
   display: flex; align-items: center; gap: 10px;
@@ -525,7 +550,11 @@ a.textlink:hover i { transform: translateX(3px); }
   background: var(--lime); color: var(--lime-ink); font-size: 13px; transition: transform .2s var(--ease);
 }
 .radio__play:hover { transform: scale(1.07); }
-.radio__vol { flex: 1; accent-color: var(--pink); height: 4px; cursor: pointer; }
+/* track is thin by design, but the thumb carries its own explicit size so
+   the draggable/tappable target stays comfortably above 24px regardless */
+.radio__vol { flex: 1; accent-color: var(--pink); height: 4px; cursor: pointer; padding-block: 10px; }
+.radio__vol::-webkit-slider-thumb { width: 20px; height: 20px; }
+.radio__vol::-moz-range-thumb { width: 20px; height: 20px; border: 0; }
 
 /* ---------- reveal ---------- */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
@@ -558,6 +587,10 @@ a.textlink:hover i { transform: translateX(3px); }
   .radio { left: 12px; bottom: 12px; }
   .radio__name { display: none; }
   .radio__panel { width: min(272px, calc(100vw - 24px)); max-height: calc(100vh - 90px); overflow: auto; }
+  /* the radio dial is fixed bottom-left and stays on screen through the
+     footer too; give the last footer block (.rating) guaranteed clearance
+     above it instead of letting them compete for the same corner */
+  .foot { padding-bottom: 110px; }
 }
 @media (max-width: 700px) {
   .poster { aspect-ratio: 700 / 842; width: min(calc(100vw - 32px), calc((100svh - 240px) * .831)); }

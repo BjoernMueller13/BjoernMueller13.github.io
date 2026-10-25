@@ -133,7 +133,16 @@
     "radio.pause": { de: "Pause", en: "Pause", es: "Pausa" },
     "radio.volume": { de: "Lautstärke", en: "Volume", es: "Volumen" },
     "radio.onAir": { de: "ON AIR", en: "ON AIR", es: "AL AIRE" },
-    "radio.hint": { de: "Sender wählen = Sprache wechseln", en: "Pick a station to change language", es: "Elige una emisora para cambiar el idioma" }
+    "radio.hint": { de: "Sender wählen = Sprache wechseln", en: "Pick a station to change language", es: "Elige una emisora para cambiar el idioma" },
+
+    "skip.link": { de: "Zum Inhalt springen", en: "Skip to content", es: "Saltar al contenido" },
+    "hero.ariaLabel": { de: "Einführung", en: "Intro", es: "Introducción" },
+    "a11y.langChanged": { de: "Sprache geändert zu", en: "Language changed to", es: "Idioma cambiado a" },
+    "footer.gtaPremise": {
+      de: "Diese Portfolio-Website ist im visuellen Stil von Grand Theft Auto VI gestaltet – ein eigenes Design-Experiment, ohne Verbindung zu Rockstar Games.",
+      en: "This portfolio website is designed in the visual style of Grand Theft Auto VI – an independent design experiment, not affiliated with Rockstar Games.",
+      es: "Este sitio de portafolio está diseñado con el estilo visual de Grand Theft Auto VI – un experimento de diseño independiente, sin afiliación con Rockstar Games."
+    }
   };
 
   /* ---------- language state ---------- */
@@ -182,6 +191,11 @@
     applyStaticI18n(document);
     if (changed || opts.force) {
       window.dispatchEvent(new CustomEvent("bm:langchange", { detail: { lang: code } }));
+      const announce = document.getElementById("langAnnounce");
+      if (announce) {
+        const station = STATIONS.find(s => s.id === code);
+        announce.textContent = t("a11y.langChanged") + ": " + (station ? station.lang[code] : code);
+      }
     }
     Radio.onLangSet(code, opts.userGesture);
   }
@@ -269,13 +283,14 @@
     function build() {
       const wrap = document.createElement("div");
       wrap.className = "radio";
+      if (!localStorage.getItem("bm-radio-seen")) wrap.classList.add("radio--hint");
       wrap.innerHTML = `
         <button class="radio__dial" type="button" aria-haspopup="true" aria-expanded="false">
           <span class="radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <span class="radio__freq"></span>
           <span class="radio__name"></span>
         </button>
-        <div class="radio__panel" role="menu">
+        <div class="radio__panel">
           <p class="radio__hint" data-i18n="radio.hint"></p>
           <ul class="radio__stations"></ul>
           <div class="radio__transport">
@@ -298,6 +313,10 @@
         panelOpen = !panelOpen;
         panel.classList.toggle("is-open", panelOpen);
         dial.setAttribute("aria-expanded", String(panelOpen));
+        if (wrap.classList.contains("radio--hint")) {
+          wrap.classList.remove("radio--hint");
+          localStorage.setItem("bm-radio-seen", "1");
+        }
       });
       document.addEventListener("click", e => {
         if (panelOpen && !wrap.contains(e.target)) { panelOpen = false; panel.classList.remove("is-open"); dial.setAttribute("aria-expanded", "false"); }
