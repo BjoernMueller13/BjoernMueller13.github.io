@@ -436,6 +436,41 @@ function palm(x, y, h, lean, col) {
   return s;
 }
 
+/* ---------- top strip: procedurally drawn palm fronds ---------- */
+function frond(bx, by, len, ang, bend, th) {
+  const a = ang * Math.PI / 180, dx = Math.cos(a), dy = Math.sin(a);
+  const P = t => [bx + dx * len * t, by + dy * len * t + len * bend * t * t];
+  const T = t => { const x = dx * len, y = dy * len + 2 * len * bend * t, m = Math.hypot(x, y); return [x / m, y / m]; };
+  const n = Math.round(len / 3.4), f = v => v.toFixed(1);
+  let d = "";
+  for (let i = 1; i <= n; i++) {
+    const t = i / n, dt = 2.4 / n;
+    const [px, py] = P(t), [qx, qy] = P(Math.min(1, t + dt)), [tx, ty] = T(t);
+    const l = th * (1 - t * 0.82) * (0.45 + 0.55 * Math.min(1, t * 6));
+    [-1, 1].forEach(s => {
+      const r = s * (52 - 20 * t) * Math.PI / 180, c = Math.cos(r), sn = Math.sin(r);
+      let ux = tx * c - ty * sn, uy = tx * sn + ty * c + 0.55;
+      const m = Math.hypot(ux, uy); ux /= m; uy /= m;
+      d += `M${f(px)} ${f(py)}L${f(px + ux * l)} ${f(py + uy * l)}L${f(qx)} ${f(qy)}Z`;
+    });
+  }
+  const [ex, ey] = P(1), [mx, my] = P(0.5);
+  d += `M${f(bx)} ${f(by)}Q${f(mx)} ${f(my)} ${f(ex)} ${f(ey)}`;
+  return `<path d="${d}" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>`;
+}
+(function topstripPalms() {
+  const host = document.querySelector(".topstrip__palms");
+  if (!host) return;
+  const crown = (x, y, angs, L, bend, th) => angs.map(a => [x, y, L * (1 - .45 * Math.abs(Math.sin(a * Math.PI / 180))), a, bend, th]);
+  const sets = [
+    [...crown(36, -6, [8, 32, 62, 118, 150, 172], 112, .22, 21), ...crown(210, -8, [14, 48, 100, 142, 170], 100, .24, 19), ...crown(370, -6, [10, 40, 95, 150], 90, .24, 18),
+     ...crown(-10, 74, [-18, -44, -70], 95, -.2, 20), ...crown(260, 78, [-24, -50, -80], 80, -.18, 17)],
+    [...crown(30, -8, [12, 40, 78, 128, 160], 106, .24, 20), ...crown(180, -6, [8, 36, 64, 112, 152, 176], 104, .22, 21), ...crown(340, -8, [16, 52, 106, 150], 90, .24, 18),
+     ...crown(-12, 76, [-20, -46, -72], 90, -.2, 19), ...crown(230, 80, [-26, -54], 80, -.18, 16)]
+  ];
+  host.innerHTML = sets.map(s => `<svg viewBox="0 0 520 64" preserveAspectRatio="xMinYMin slice" fill="currentColor" aria-hidden="true" focusable="false">${s.map(a => frond(...a)).join("")}</svg>`).join("");
+})();
+
 const MOTIF = {
   gear: `<circle cx="0" cy="0" r="62" stroke-width="22" stroke-dasharray="15 13.5"/><circle cx="0" cy="0" r="46"/><circle cx="0" cy="0" r="16"/><circle cx="105" cy="78" r="34" stroke-width="14" stroke-dasharray="10 9.6" stroke="#ff8fc8"/><circle cx="105" cy="78" r="10" stroke="#ff8fc8"/>`,
   nodes: `<rect x="-200" y="-30" width="76" height="56" rx="14"/><rect x="-60" y="-90" width="76" height="56" rx="14"/><rect x="-60" y="40" width="76" height="56" rx="14"/><rect x="90" y="-30" width="76" height="56" rx="14" stroke="#ff8fc8"/><path d="M-124 -2 C-90 -2 -95 -62 -60 -62 M-124 -2 C-90 -2 -95 68 -60 68 M16 -62 C55 -62 50 -2 90 -2 M16 68 C55 68 50 -2 90 -2"/><path d="M128 -60 L134 -44 L150 -38 L134 -32 L128 -16 L122 -32 L106 -38 L122 -44 Z" fill="#ff8fc8" stroke="#ff8fc8"/><circle cx="-162" cy="-2" r="8"/><path d="M-36 -62 L-8 -62 M-36 68 L-8 68"/>`,
@@ -743,6 +778,9 @@ function renderAll(instant) {
   renderTraining(instant);
   renderTravel(instant);
 }
+/* Reveal elements that live in the static HTML (story block, section heads,
+   stats, travel banner, continents). mount() only observes rendered children. */
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 renderAll(false);
 
 window.addEventListener("bm:langchange", () => {
